@@ -1,0 +1,20 @@
+{
+  "name": "tram_on_rails",
+  "version": "1.0.0",
+  "description": "Evgenii's game project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evgenii-shvetsov/aA_tram_on_rails_game.git"
+  },
+  "keywords": [],
+  "author": "Evgenii Shvetsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evgenii-shvetsov/aA_tram_on_rails_game/issues"
+  },
+  "homepage": "https://github.com/evgenii-shvetsov/aA_tram_on_rails_game#readme"
+}
