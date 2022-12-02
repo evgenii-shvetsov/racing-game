@@ -1,7 +1,7 @@
-### Tram on rails game
+# Tram on rails game
 
 
-# Background
+### Background
 
 
 **Tram on rails** is a 2D game with a top-down view. A tram/cable car will ride on San Francisco Street, trying to avoid collisions with randomly appearing taxi cabs. A tram could go straight/left/right and back. When it honks, taxi cabs will disappear from the screen. There will be an “n” number of honks and an “n” number of possible collisions. A stopwatch starts at the same time a user starts the game. A goal is to avoid obstacles as long as you can. 
