@@ -51,6 +51,15 @@ main #control_keys{
     left: 499px;
 }
 
+main #control_keys_space{
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 225px;
+    left: 511px;
+}
+
 .myButton {
     min-width: 122px;/**/
     text-align: center;
