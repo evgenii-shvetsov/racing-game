@@ -129,6 +129,7 @@ pause_game.addEventListener("click", (e)=>{
 
 //VARIABLES start
 
+// const REFRESH_SCREEN_TIME = 1000 / 50;
 const REFRESH_SCREEN_TIME = 1000 / 50;
 let timerInterval = null;
 
@@ -156,6 +157,7 @@ function LaunchGame(){
             timerInterval = setInterval(UpdateGame, REFRESH_SCREEN_TIME); //Refreshing screen n time per second
         // }
         // requestAnimationFrame(LaunchGame) . check this out
+        // requestAnimationFrame(UpdateGame)
     }
 //works fine
 function StopGame(){
@@ -168,9 +170,15 @@ function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
     
-        //Generating obstacles
-        if(randomNumber(0, 10000) > 9750){ 
+        //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
+        if(randomNumber(0, 10000) > 9900){  //car 1
             obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
+        }
+        if(randomNumber(0, 10000) > 9900){ //car 2
+            obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
+        }
+        if(randomNumber(0, 10000) > 9900){ //car 3
+            obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
         }
     
     
@@ -178,7 +186,7 @@ function UpdateGame(){
     
         if(racer.collideWith){
             // alert("OHHHHH CRASH!");
-            // StopGame();
+            StopGame();
         }
     
         let isDestroyed = false; 
@@ -201,7 +209,7 @@ function UpdateGame(){
     
             if(collision){
                 // alert("OHHHHH CRASH!");
-                // StopGame();
+                StopGame();
                 clock = false; // stop clock when collision
                 racer.collideWith = true;
                 break;
@@ -301,5 +309,5 @@ function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-
+    
 });
