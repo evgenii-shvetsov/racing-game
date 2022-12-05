@@ -1,18 +1,17 @@
 /*************FOOTER***********************/
 
 footer{
-    max-height: 130px;
+    // max-height: 130px;
+    height: 130px;
     width: 100%;
     text-align: center;
-    // background: rgb(232,217,20);
-    // background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
 }
 
 .footer_text h6 {
     color:#FFDF00;
 	font-size: 2.25em;
-    text-shadow: 0 0 3px #001604
-	// margin-top: 0.625em;
+    text-shadow: 0 0 3px #001604;
+
 }
 
 .footer_text a {
@@ -30,8 +29,8 @@ footer{
 }
 
 .social_media {
-    margin-top: 0.625em;
-    margin-bottom: 0.625em;
+    // margin-top: 0.625em;
+    // margin-bottom: 0.625em;
 }
 .social_media a{
     margin-left: 10px;
@@ -47,6 +46,8 @@ footer{
 }
 
 .social_media img {
-	max-width: 30px;
-	max-height: 30px;
+	// max-width: 30px;
+	// max-height: 30px;
+    width: 37px;
+    height: 37px;
 }
