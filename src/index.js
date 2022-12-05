@@ -137,7 +137,7 @@ let obstacles = []; //store all moving obstacles
 
 
 // Array with driveways images //works fine now
-let driveWays = [new DriveWay('../assets/driveway.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway.jpeg', canvas.width, speed, canvas)]; 
+let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
 
 // Main charachter RACER // works fine now
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas); // main racer object

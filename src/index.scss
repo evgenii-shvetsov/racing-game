@@ -8,7 +8,7 @@
     src: url(https://fonts.gstatic.com/s/rancho/v17/46kulbzmXjLaqZRVam_hVUdI1w.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-  
+
 * {
     margin: 0;
     padding: 0;
@@ -40,8 +40,13 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Rancho', sans-serif;
-    background: rgb(225, 222, 222);
     color: black;
+    // background: rgb(225, 222, 222);
+    background-image:url('/assets/background_body1.jpeg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    
 }
 
 /*************CONTAINER******************/
@@ -56,17 +61,22 @@ body {
 /*************HEADER***********************/
 header {
     height: 100px;
-    /*min-width: 950px;/***************************************/
     display: flex;
-    background: rgb(232,217,20);
-    background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
     align-items: center;
+    /*min-width: 950px;/***************************************/
+    
+    // background: rgb(232,217,20);
+    // background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
+    
 }
 
 .header_text{
     margin: auto;
     font-weight: 700;
-    font-size: 25px;
+    // font-size: 25px;
+    // color:#FFDF00;
+    color:#FFDF00;
+	font-size: 2.25em;
 }
 
 
@@ -171,6 +181,13 @@ main .controls{
     border: none;
     font-size: 18px;
     padding: 14px;
+    
+}
+
+#pause_game:hover{
+    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
 }
 
 #play_game{
@@ -225,22 +242,22 @@ footer{
     max-height: 130px;
     width: 100%;
     text-align: center;
-    background: rgb(232,217,20);
-    background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
+    // background: rgb(232,217,20);
+    // background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
 }
 
 .footer_text h6 {
-	color: #323a45;
-	font-size: 1.25em;
-	font-weight: 800;
-	margin-top: 0.625em;
+    color:#FFDF00;
+	font-size: 2.25em;
+	// margin-top: 0.625em;
 }
 
 .footer_text a {
 	margin-top: 0.625em;
-	color: #004cd0;
-	font-size: 0.875em;
-	font-weight: 400;
+
+    color: white;
+	font-size: 1.875em;
+	
 	line-height: 1.5625em;
 	letter-spacing: 0.7px;
 }
@@ -251,6 +268,10 @@ footer{
 .social_media {
     margin-top: 0.625em;
     margin-bottom: 0.625em;
+}
+.social_media a{
+    margin-left: 15px;
+    
 }
 
 .social_media img{
