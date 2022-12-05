@@ -142,7 +142,7 @@ let obstacles = []; //store all moving obstacles
 // Array with driveways images //works fine now
 let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
 
-// Main charachter RACER // works fine now
+// Main charachter RACER // works fine now //car1
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas); // main racer object
     
     
@@ -179,6 +179,9 @@ function UpdateGame(){
         }
         if(randomNumber(0, 10000) > 9900){ //car 3
             obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
+        }
+        if(randomNumber(0, 10000) > 9900){ //car 3
+            obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
         }
     
     
