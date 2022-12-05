@@ -303,6 +303,7 @@ function drawMovingObject(movingObject){
 //
 function shakeCanvas(){
     let canvasShake = document.getElementById('game-canvas');
+        canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
         canvasShake.classList.add("shacky-canvas");
 
         if(rage > 0){
@@ -314,12 +315,10 @@ function shakeCanvas(){
             alert('No more rage, please chill!')
         }
 
-        // if(!rage){
-        //     alert('No more rage, pleas chill!')
-        // }
-        // obstacles = [];
-
-        // canvasShake.classList.remove("shacky-canvas");
+        setTimeout(()=>{
+            canvasShake.classList.remove("shacky-canvas");
+            canvasShake.style ="box-shadow: 0 0 24px rgb(21, 199, 223)";
+        },1500)
 }
 
 //that's fine as well
