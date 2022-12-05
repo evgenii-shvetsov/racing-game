@@ -1,0 +1,238 @@
+@import 'styles/reset.scss';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    text-decoration: none;
+    /*list-style-type: none;*/
+}
+h2, h3, h4{
+    font-size: 1.25em;
+}
+
+/*************BODY***********************/
+body {
+    height: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sono', sans-serif;
+    background: rgb(225, 222, 222);
+    color: black;
+}
+
+/*************CONTAINER******************/
+.container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 950px;
+}
+
+/*************HEADER***********************/
+header {
+    height: 100px;
+    /*min-width: 950px;/***************************************/
+    display: flex;
+    background: rgb(232,217,20);
+    background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
+    align-items: center;
+}
+
+.header_text{
+    margin: auto;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+
+
+/*************MAIN***********************/
+main{
+    margin: 2.5em 0.625em 2.5em 0.625em;
+    display: flex;
+    flex-wrap: wrap;/**/
+    flex: 1; 
+}
+
+/*************MENU***********************/
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu li{
+    // margin-bottom: 0.625em;
+    margin: 15px;
+}
+
+.menu li:hover{
+    opacity: 0.6;
+}
+
+/*************CONTENT***********************/
+main{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+main .content{
+    margin-left: 1.875em;
+}
+
+main .controls{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 255px;
+    left: 119px;
+}
+
+
+
+main .controls button{
+    margin-left: 127px; //hardcoded value
+}
+.myButton {
+    min-width: 150px;/**/
+    text-align: center;
+    box-shadow: inset 0 0 0.875em 0.0625em #ffffff;
+	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 0.375em;
+	border: 0.0625em solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #000000;
+	font-size: 0.9375em;
+	padding: 0.375em 1.5em;
+	text-decoration: none;
+	text-shadow: 0 0.0625em 0 #ffffff;
+}
+
+.myButton:hover{
+    background: rgb(204, 212, 51);
+}
+
+
+//stopwatch
+#time{
+    display: none;
+    background: rgb(204, 212, 51);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: auto;
+}
+
+.hide-controls {
+    display: none;
+    color: red;
+}
+// .move-pause-button{
+//     display: none;
+//     position: absolute;
+//     top: -255px;
+//     left: 312px;
+// }
+
+#pause_game{
+    display: none;
+    position: absolute;
+    top: -256px;
+    left: 214px;
+}
+
+/*************FOOTER***********************/
+
+footer{
+    max-height: 130px;
+    width: 100%;
+    text-align: center;
+    background: rgb(232,217,20);
+    background: linear-gradient(212deg, rgb(218, 212, 217) 0%, rgba(242,242,235,1) 27%, rgba(242,241,237,1) 69%, rgba(210,210,210,1) 100%);
+}
+
+.footer_text h6 {
+	color: #323a45;
+	font-size: 1.25em;
+	font-weight: 800;
+	margin-top: 0.625em;
+}
+
+.footer_text a {
+	margin-top: 0.625em;
+	color: #004cd0;
+	font-size: 0.875em;
+	font-weight: 400;
+	line-height: 1.5625em;
+	letter-spacing: 0.7px;
+}
+
+.footer_text a:hover{
+    color: #6f0297;
+}
+.social_media {
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
+}
+
+.social_media img{
+    transition: all .2s ease-in-out;
+}
+
+.social_media img:hover{
+    transform: scale(1.2);
+}
+
+.social_media img {
+	max-width: 30px;
+	max-height: 30px;
+}
+
+
+
+
+
+
+#canvas{
+   display: flex;
+   justify-content: center; 
+   position: relative;
+}
+
+
+#game-canvas{
+    // border: 1px solid rgb(117, 15, 15);
+
+    box-shadow: 0 0 24px ;
+    border-radius: 10px;
+}
+
+// #game-canvas
+// {
+//     width: 100%;
+//     height: 100%;
+//     background: #000;
+// }
+

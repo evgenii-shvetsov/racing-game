@@ -11,8 +11,95 @@
 
   <body>
 
-    <h1>Hello World</h1>
-    <canvas id="game-canvas" style="border: 1px solid black;"></body><canvas>
+    <div class="container">
+
+        <header>
+            <a class ="logo" href="#" target="_blank" rel="noopener noreferrer"><img width="60px" height="60px" id="joystick" src="assets/joystick.png" alt="game logo"></a>
+            <h1 class="header_text">Tram on Rails</h1>
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="https://www.sftravel.com/article/28-things-not-miss-san-francisco" target="_blank" rel="noopener noreferrer">Explore SF</a></li>
+                    <li><a href="https://www.sfcablecar.com/"  target="_blank" rel="noopener noreferrer">Cable Car</a></li>
+                  
+                </ul>
+            </nav>
+        </header>
+
+
+
+        <main>
+
+
+            <section id="canvas">
+                <canvas id="game-canvas" ><canvas>
+        
+            </section>
+
+            <section class="controls">
+                <button id="play_game" class="myButton" >Play</button>
+                <button id="pause_game" class="myButton" >Pause</button>
+            </section>
+
+            <section class="stopwatch">
+                <div id="time" class="myButton">
+                    <!-- <span class="digit" id="hr">
+                      00</span>
+                    <span class="txt">Hr</span> -->
+                    <span class="digit" id="min">
+                      00</span>
+                    <span class="txt">:</span>
+                    <span class="digit" id="sec">
+                      00</span>
+                    <span class="txt">:</span>
+                    <span class="digit" id="count">
+                      00</span>
+                </div>
+            </section>
+
+           
+            
+        </main>
+
+
+
+        <footer>
+            <section class="footer_details">
+
+                <div class="footer_text">
+                        <h6>Evgenii Shvetsov</h6>
+                        <a href="mailto:sea.dev91@gmail.com">Email Me</a>
+                    </div>
+
+                <div class="social_media">
+                    <a href="https://github.com/evgenii-shvetsov" target="_blank" rel="noopener noreferrer"><img src="assets/github-logo.png" alt="github logo"></a>
+               
+                    <a href="https://www.linkedin.com/in/evgenii-shvetsov" target="_blank" rel="noopener noreferrer"><img src="assets/linkedin.png" alt="linkedin logo"></a>
+                </div>
+            </section>
+        </footer>
+    
+
+
+
+    </div>
+
+
+    
   </body>
 
 </html>
+
+
+
+
+<!-- //Drawing road
+    function draw() {
+ 
+       const img = new Image();
+        img.onload = () => {
+          ctx.drawImage(img, 0, 0);
+        };
+        img.src = '../assets/road1.jpg';
+      }
+draw() -->
