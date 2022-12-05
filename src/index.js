@@ -176,7 +176,7 @@ function UpdateGame(){
             if(randomNumber(0, 10000) > 9950){  //car 1
                 obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas));
             }
-        },1)
+        },1000)
 
         // if(randomNumber(0, 10000) > 9950){  //car 1
         //     obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas));
@@ -185,7 +185,7 @@ function UpdateGame(){
             if(randomNumber(0, 10000) > 9950){ //car 2
                 obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas));
             }
-        },2)
+        },2000)
         // if(randomNumber(0, 10000) > 9950){ //car 2
         //     obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas));
         // }
@@ -194,7 +194,7 @@ function UpdateGame(){
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas));
             }
-        },3)
+        },3000)
         // if(randomNumber(0, 10000) > 9950){ //car 3
         //     obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas));
         // }
@@ -203,7 +203,7 @@ function UpdateGame(){
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas));
             }
-        },4)
+        },4000)
         // if(randomNumber(0, 10000) > 9950){ //car 3
         //     obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 155), randomNumber(300, 350) * -1, false, speed, size, canvas));
         // }
