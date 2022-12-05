@@ -19,7 +19,7 @@ export default class MovingObject{
     }
 
     updateMovingObject(){
-        if(!this.isRacer){ //isRacer false, means that it's an obstacle
+        if(!this.isRacer){ //isRacer false, means that it is not an obstacle
             this.y += this.speed + 4; //obstacles speed
         }
 

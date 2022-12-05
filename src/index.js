@@ -166,8 +166,8 @@ function UpdateGame(){
         driveWays[1].updateDriveWay(driveWays[0]);
     
         // TO CHANGE
-        if(RandomInteger(0, 10000) > 9700){ //Generating new movingObject
-            obstacles.push(new MovingObject("../assets/cabrio.png", RandomInteger(30, canvas.width - 50), RandomInteger(250, 400) * -1, false, speed, size, canvas));
+        if(randomNumber(0, 10000) > 9700){ //Generating new movingObject
+            obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(30, canvas.width - 50), randomNumber(250, 400) * -1, false, speed, size, canvas));
         }
     
         racer.updateMovingObject();
@@ -293,9 +293,8 @@ function KeyDown(e){
     }
     
     // that's fine
-function RandomInteger(min, max) {
-        let rand = min - 0.5 + Math.random() * (max - min + 1);
-        return Math.round(rand);
+function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
     }
 
 
