@@ -1,0 +1,18 @@
+/*************CANVAS***********************/
+
+#canvas{
+    display: flex;
+    justify-content: center; 
+    position: relative;
+    box-shadow: 0 0 24px;
+    border-radius: 10px;
+    background-image: url("/assets/background_layer.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+ }
+ 
+ #game-canvas{
+     box-shadow: 0 0 24px ;
+     border-radius: 10px;
+ }

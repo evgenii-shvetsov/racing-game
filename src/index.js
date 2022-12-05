@@ -87,6 +87,7 @@ function stopWatch() {
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 626;
+// canvas.height = 800;
 canvas.height = 626;
 
 //launching game screen start
@@ -165,11 +166,6 @@ function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
     
-        // TO CHANGE
-        // if(randomNumber(0, 10000) > 9700){ //Generating new movingObject
-        //     obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(30, canvas.width - 50), randomNumber(250, 400) * -1, false, speed, size, canvas));
-        // }
-
         //Generating obstacles
         if(randomNumber(0, 10000) > 9750){ 
             obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
