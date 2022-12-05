@@ -1,0 +1,150 @@
+/*************MAIN***********************/
+main{
+    margin: 2.5em 0.625em 2.5em 0.625em;
+    display: flex;
+    flex-wrap: wrap;/**/
+    flex: 1; 
+}
+
+
+
+/*************MENU***********************/
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu li{
+    // margin-bottom: 0.625em;
+    margin: 15px;
+}
+
+.menu li:hover{
+    opacity: 0.6;
+}
+
+/*************CONTENT***********************/
+main{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+main .content{
+    margin-left: 1.875em;
+}
+
+
+
+/*************STYLING BUTTONS***********************/
+main .controls{
+    position: absolute;
+}
+
+.myButton {
+    min-width: 122px;/**/
+    text-align: center;
+    box-shadow: inset 0 0 0.875em 0.0625em #ffffff;
+	// background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 0.375em;
+	border: 0.0625em solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #000000;
+	font-size: 0.9375em;
+	padding: 0.375em 1.5em;
+	text-decoration: none;
+	text-shadow: 0 0.0625em 0 #ffffff;
+}
+
+.myButton:hover{
+    background: #6f029793;
+    color: white;
+}
+
+
+//stopwatch
+#time{
+    display: none;
+    background: #6f029793;
+    color: #FFDF00;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 20px;
+    left: 3px;
+    cursor: progress;
+    height: 50px;
+    border: none;
+    font-size: 18px;
+    padding: 14px;
+}
+
+.hide-controls {
+    display: none;
+
+}
+
+#pause_game{
+    display: none;
+    background: #6f029793;
+    color: #FFDF00;
+    position: absolute;
+    letter-spacing: 1px;
+    top: 20px;
+    left: 500px;
+    height: 50px;
+    border: none;
+    font-size: 18px;
+    padding: 14px;
+    
+}
+
+#pause_game:hover{
+    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+#play_game{
+    width: 126px;
+    height: 91px;
+    position: absolute;
+    top: 185px;
+    left: 249px;
+    background-color: #6f029793;
+    color: white;
+    border: none;
+    letter-spacing: 7px;
+    font-size: 21px;
+    font-weight: 300;
+    
+}
+
+// adding shaking effects with key frames
+#play_game:hover{
+    background-color: #6f029793;
+    color: #FFDF00;
+    // transform: translateY(1px);
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+  }
+}
