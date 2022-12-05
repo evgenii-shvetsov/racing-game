@@ -42,6 +42,15 @@ main .controls{
     position: absolute;
 }
 
+main #control_keys{
+    display: none;
+    position: absolute;
+    width: 127px;
+    height: 115px;
+    top: 98px;
+    left: 499px;
+}
+
 .myButton {
     min-width: 122px;/**/
     text-align: center;

@@ -96,6 +96,7 @@ canvas.height = 626;
 let controls = document.querySelector(".controls");
 let play_game = document.getElementById("play_game");
 let pause_game = document.getElementById("pause_game");
+let control_keys = document.getElementById("control_keys");
 let stopwatch = document.getElementById('time')
 
 
@@ -107,6 +108,7 @@ play_game.addEventListener("click", (e)=>{
     // pause_game.classList.add("move-pause-button");
     pause_game.style.display ="block";
     stopwatch.style.display = "block";
+    control_keys.style.display = "block";
     //stopwatch run
     clock = true;
     stopWatch();
