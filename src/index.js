@@ -136,6 +136,10 @@ let timerInterval = null;
 let size = 0.1 //Moving object size
 let speed = 5;
 let obstacles = []; //store all moving obstacles
+
+//road rage, remove obstacles, "n" amount of attempts
+let rage = 3;
+
 //VARIABLES end
 
 
@@ -293,7 +297,28 @@ function drawMovingObject(movingObject){
             movingObject.image.height * size 
         );
     }
-    
+
+//
+function shakeCanvas(){
+    let canvasShake = document.getElementById('game-canvas');
+        canvasShake.classList.add("shacky-canvas");
+
+        if(rage > 0){
+            console.log(rage, "before action")
+            obstacles = [];
+            rage--;
+            console.log(rage, "after action")
+        } else {
+            alert('No more rage, please chill!')
+        }
+
+        // if(!rage){
+        //     alert('No more rage, pleas chill!')
+        // }
+        // obstacles = [];
+
+        // canvasShake.classList.remove("shacky-canvas");
+}
 
 //that's fine as well
 function KeyDown(e){
@@ -313,9 +338,16 @@ function KeyDown(e){
             case 83: //Down
                 racer.move("y", speed);
                 break;
+
+            case 32: //Space
+                // Remove all obstacles from screen
+                // obstacles = [];
+                shakeCanvas()
+                break;
             
             case 38: //Up
                 // Start()//speed increase
+                
                 break;
     
             case 27: //Esc
@@ -330,6 +362,8 @@ function KeyDown(e){
                 break;
         }
     }
+
+
     
     // that's fine
 function randomNumber(min, max) {
