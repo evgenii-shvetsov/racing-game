@@ -166,15 +166,21 @@ function UpdateGame(){
         driveWays[1].updateDriveWay(driveWays[0]);
     
         // TO CHANGE
-        if(randomNumber(0, 10000) > 9700){ //Generating new movingObject
-            obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(30, canvas.width - 50), randomNumber(250, 400) * -1, false, speed, size, canvas));
+        // if(randomNumber(0, 10000) > 9700){ //Generating new movingObject
+        //     obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(30, canvas.width - 50), randomNumber(250, 400) * -1, false, speed, size, canvas));
+        // }
+
+        //Generating obstacles
+        if(randomNumber(0, 10000) > 9750){ 
+            obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 185), randomNumber(250, 400) * -1, false, speed, size, canvas));
         }
+    
     
         racer.updateMovingObject();
     
         if(racer.collideWith){
             // alert("OHHHHH CRASH!");
-            StopGame();
+            // StopGame();
         }
     
         let isDestroyed = false; 
@@ -196,8 +202,8 @@ function UpdateGame(){
             collision = racer.hit(obstacles[i]);
     
             if(collision){
-                alert("OHHHHH CRASH!");
-                StopGame();
+                // alert("OHHHHH CRASH!");
+                // StopGame();
                 clock = false; // stop clock when collision
                 racer.collideWith = true;
                 break;
