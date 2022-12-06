@@ -91,7 +91,7 @@ canvas.height = 626;
 // WORKING WITH DOM
 let controls = document.querySelector(".controls");
 let play_game = document.getElementById("play_game");
-let pause_game = document.getElementById("pause_game");
+let resetGame = document.getElementById("resetGame");
 let control_keys = document.getElementById("control_keys");
 let control_keys_space = document.getElementById("control_keys_space");
 let stopwatch = document.getElementById('time');
@@ -112,7 +112,7 @@ play_game.addEventListener("click", (e)=>{
     // controls.classList.add("hide-controls")   
     play_game.classList.add("hide-controls");
     // pause_game.classList.add("move-pause-button");
-    // pause_game.style.display ="block";
+    resetGame.style.display ="block";
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
     control_keys_space.style.display = "block";
@@ -122,13 +122,14 @@ play_game.addEventListener("click", (e)=>{
     stopWatch();
 })
 
-pause_game.addEventListener("click", (e)=>{
-    console.log('pause is working')
-    StopGame()
+resetGame.addEventListener("click", (e)=>{
+    console.log('reset is working')
+    window.location.reload()
+    // StopGame()
     // controls.classList.add("hide-controls")   
-    play_game.classList.add("hide-controls")
+    // play_game.classList.add("hide-controls")
     //stopwatch pause
-    clock = false;//clock pause
+    // clock = false;//clock pause
 })
 
 
