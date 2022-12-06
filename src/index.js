@@ -16,17 +16,7 @@ let hour = 0o00;
 let minute = 0o00;
 let second = 0o00;
 let count = 0o00;
-// resetBtn.addEventListener('click', function () {
-//     clock = false;
-//     hour = 0;
-//     minute = 0;
-//     second = 0;
-//     count = 0;
-//     document.getElementById('hr').innerHTML = "00";
-//     document.getElementById('min').innerHTML = "00";
-//     document.getElementById('sec').innerHTML = "00";
-//     document.getElementById('count').innerHTML = "00";
-// });
+
 function stopWatch() {
     if (clock) {
         count++;
@@ -68,7 +58,7 @@ function stopWatch() {
             countString = "0" + countString;
         }
   
-        // document.getElementById('hr').innerHTML = hrString;
+
         document.getElementById('min').innerHTML = minString;
         document.getElementById('sec').innerHTML = secString;
         document.getElementById('count').innerHTML = countString;
@@ -109,9 +99,7 @@ let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
 play_game.addEventListener("click", (e)=>{
     console.log('play is working');
     LaunchGame();
-    // controls.classList.add("hide-controls")   
     play_game.classList.add("hide-controls");
-    // pause_game.classList.add("move-pause-button");
     resetGame.style.display ="block";
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
@@ -125,11 +113,6 @@ play_game.addEventListener("click", (e)=>{
 resetGame.addEventListener("click", (e)=>{
     console.log('reset is working')
     window.location.reload()
-    // StopGame()
-    // controls.classList.add("hide-controls")   
-    // play_game.classList.add("hide-controls")
-    //stopwatch pause
-    // clock = false;//clock pause
 })
 
 
@@ -140,9 +123,10 @@ const REFRESH_SCREEN_TIME = 1000 / 50;
 let timerInterval = null;
 
 let size = 0.1 //Moving object size
-let speed = 4;
+let speed = 4; //speed for canvas 
 let obstacles = []; //store all moving obstacles
-let obstaclesSpeed = 4; //could be triggered in tounds increasing
+let obstaclesSpeed = 4; //could be triggered in rounds increasing
+let playerAcceleration = 5; // speed of moving on the canvas
 
 // GAME COUNTERS
 let round = 1; // round number
@@ -156,7 +140,6 @@ rageLevel.innerHTML = `Rage ${rage}`
 
 let disappeardCars = 0
 carsPassed.innerHTML = `Passed cars ${disappeardCars}`
-
 //VARIABLES end
 
 
@@ -196,7 +179,29 @@ let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new
 
 // Main charachter RACER // works fine now //car1
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas, obstaclesSpeed); // main racer object
-    
+
+console.log(count)
+//LEVEL LOGIC
+
+function increaseLevel(){
+    if(disappeardCars < 11){
+        round = 1;
+        obstaclesSpeed = 4;
+        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+    } else if(disappeardCars > 11 && disappeardCars < 30){
+        // alert('new round')
+        round = 2;
+        roundCounter.innerHTML = `Round ${round}`
+        obstaclesSpeed = 6;
+        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+    } else if (disappeardCars > 30){
+        // alert('new round')
+        round = 3;
+        roundCounter.innerHTML = `Round ${round}`
+        obstaclesSpeed = 8;
+        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+}
+}
     
 // MAIN FUNCTIONS
 
@@ -219,29 +224,32 @@ function UpdateGame(){
     
         //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
 
-        // setTimeout(()=>{
+        increaseLevel()
+
+
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
                 obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
-        // },1000)
+        },1000)
         
-        // setTimeout(()=>{
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 2
                 obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
-        // },2000)
+        },2000)
 
-        // setTimeout(()=>{
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
-        // },3000)
+        },3000)
 
-        // setTimeout(()=>{
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
-        // },4000)
+        },4000)
 
         racer.updateMovingObject();
     
@@ -397,19 +405,19 @@ function shakeCanvas(){
 function KeyDown(e){
         switch(e.keyCode){
             case 65: //Left
-                racer.move("x", -speed);
+                racer.move("x", -speed, playerAcceleration);
                 break;
     
             case 68: //Right
-                racer.move("x", speed);
+                racer.move("x", speed, playerAcceleration);
                 break;
     
             case 87: //Up
-                racer.move("y", -speed);
+                racer.move("y", -speed, playerAcceleration);
                 break;
     
             case 83: //Down
-                racer.move("y", speed);
+                racer.move("y", speed, playerAcceleration);
                 break;
 
             case 32: //Space
@@ -424,19 +432,15 @@ function KeyDown(e){
                 break;
             
             case 38: //Up
-                // Start()//speed increase
-                
+                playerAcceleration++;
+                console.log(`Acceleration: ${playerAcceleration}`)
+                break;
+            case 40: //down
+                playerAcceleration--;
+                console.log(`Acceleration: ${playerAcceleration}`)
                 break;
     
             case 27: //Esc pausing game and stopwatch
-                // if(timerInterval == null){
-                //     LaunchGame();
-                //     clock = true;
-                //     stopWatch();
-                // } else {
-                //     StopGame();
-                //     clock = false;
-                // }
                 pausingGame()
                 break;
         }

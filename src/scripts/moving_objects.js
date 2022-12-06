@@ -1,5 +1,5 @@
 export default class MovingObject{
-    constructor(image, x, y, isRacer, speed, size, canvas, obstaclesSpeed){
+    constructor(image, x, y, isRacer, speed, size, canvas, obstaclesSpeed, playerAcceleration){
         this.x = x;
         this.y = y;
 
@@ -7,6 +7,7 @@ export default class MovingObject{
         this.size = size;
         this.canvas = canvas;
         this.obstaclesSpeed = obstaclesSpeed
+        this.playerAcceleration = playerAcceleration
 
         this.collideWith = false;  // to change
         this.isRacer = isRacer;
@@ -43,9 +44,9 @@ export default class MovingObject{
         return collisionStatus;
     }
 
-    move(vector, acceleration) {
+    move(vector, acceleration,playerAcceleration) {
         if(vector == "x"){ 
-            acceleration *= 5; 
+            acceleration *= playerAcceleration; 
             this.x += acceleration; //sliding on Axis X
 
             //Restricting the ability to move out of the canvas on Axis X; resetting values
@@ -58,7 +59,7 @@ export default class MovingObject{
             }
 
         } else { 
-            acceleration *= 5;
+            acceleration *= playerAcceleration;
             this.y += acceleration; //sliding on Axis Y
             // Restricting the ability to move out of the canvas on Axis Y; resetting values
             if(this.y + this.image.height * this.size > this.canvas.height){
