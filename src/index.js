@@ -307,10 +307,16 @@ function UpdateGame(){
                 if(life > 0){
                     pausingGame()
                     life--;
+                    // let tag = document.createElement("p");
+                    // let text = document.createTextNode(`Hey, you hit a car! ${life} collision(s) left`);
+                    // tag.appendChild(text);
+
                     let tag = document.createElement("p");
-                    let text = document.createTextNode(`Hey, you hit a car! ${life} collision(s) left`);
-                    tag.appendChild(text);
+                    tag.innerHTML =`<br> <br>Hey, you hit a car! <br> <br>
+                     ${life} collision(s) left`
+
                     collisionScreen.appendChild(tag);
+
                     setTimeout(()=>{
                         tag.remove();
                         collisionScreen.style.display = 'none';
@@ -321,23 +327,25 @@ function UpdateGame(){
                     obstacles = [];
                     lifeCounter.innerHTML = `Life ${life}`
                 } else{
-                    // alert("You're a bad driver")
+
                     StopGame();
-                  
                     clock = false; // stop clock when collision
-                    racer.collideWith = true;
                     let tag = document.createElement("p");
-                    let text = document.createTextNode("You're a bad driver");
-                    tag.appendChild(text);
+                    tag.innerHTML =`
+                    You're a bad driver!!! <br> <br> 
+                    Your time is: ${minute} min ${second} sec ${count} ms <br>
+                    You passed: ${disappeardCars} cars <br> 
+                    `
                     collisionScreen.appendChild(tag);
                     resetGame.classList.add("rage-level-shake");
+
+
+
+
                     
                     break;
                 }
-                // StopGame();
-                // clock = false; // stop clock when collision
-                // racer.collideWith = true;
-                // break;
+
             }
         }
         
