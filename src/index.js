@@ -292,13 +292,15 @@ function UpdateGame(){
                 } else{
                     // alert("You're a bad driver")
                     StopGame();
+                  
                     clock = false; // stop clock when collision
                     racer.collideWith = true;
                     let tag = document.createElement("p");
                     let text = document.createTextNode("You're a bad driver");
                     tag.appendChild(text);
                     collisionScreen.appendChild(tag);
-
+                    resetGame.classList.add("rage-level-shake");
+                    
                     break;
                 }
                 // StopGame();

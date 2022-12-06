@@ -199,7 +199,7 @@ main #control_keys_space{
 }
 
 .rage-level-shake{
-    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     perspective: 1000px;
     box-shadow: 0 0 50px rgb(225, 18, 18)
