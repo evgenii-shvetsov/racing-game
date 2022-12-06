@@ -63,6 +63,8 @@ function stopWatch() {
         document.getElementById('sec').innerHTML = secString;
         document.getElementById('count').innerHTML = countString;
         setTimeout(stopWatch, 10);
+
+        // console.log(`${minute} min ${second} sec ${count} ms`)
     }
 }
 ///////////STOPWATCH CODE  END//////////////
@@ -180,27 +182,46 @@ let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new
 // Main charachter RACER // works fine now //car1
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas, obstaclesSpeed); // main racer object
 
-console.log(count)
+
 //LEVEL LOGIC
+// console.log(`${minute}:0o${second}:0o${count}`)
+
+
+
+
 
 function increaseLevel(){
-    if(disappeardCars < 11){
+    if(disappeardCars < 5){
         round = 1;
         obstaclesSpeed = 4;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-    } else if(disappeardCars > 11 && disappeardCars < 30){
+    } else if(disappeardCars > 5 && disappeardCars < 13){
         // alert('new round')
         round = 2;
         roundCounter.innerHTML = `Round ${round}`
         obstaclesSpeed = 6;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-    } else if (disappeardCars > 30){
+    } else if (disappeardCars > 13 && disappeardCars < 20){
         // alert('new round')
         round = 3;
         roundCounter.innerHTML = `Round ${round}`
         obstaclesSpeed = 8;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-}
+    }   else if(disappeardCars === 30 ){
+        collisionScreen.style.display = 'block';
+        StopGame();
+        clock = false; // stop clock when collision
+        let tag = document.createElement("p");
+        tag.innerHTML =`
+        WOW, impressive driving skills!!! <br> <br> 
+        Your time is:  ${minute} min ${second} sec ${count} ms <br>
+        You passed:   ${disappeardCars} cars <br> 
+        Rage mode left:   ${rage} <br> 
+        Lives left:   ${life} <br> 
+        `
+        collisionScreen.appendChild(tag);
+        resetGame.classList.add("rage-level-shake");
+    }
 }
     
 // MAIN FUNCTIONS
@@ -221,7 +242,9 @@ function StopGame(){
 function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
-    
+
+        //TESTING TIMER
+        
         //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
 
         increaseLevel()
@@ -285,7 +308,7 @@ function UpdateGame(){
                     pausingGame()
                     life--;
                     let tag = document.createElement("p");
-                    let text = document.createTextNode(`Hey, you hit a car! ${life} collisions left`);
+                    let text = document.createTextNode(`Hey, you hit a car! ${life} collision(s) left`);
                     tag.appendChild(text);
                     collisionScreen.appendChild(tag);
                     setTimeout(()=>{
