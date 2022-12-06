@@ -104,7 +104,12 @@ let gameCounters = document.querySelector('.game-counters')
 let roundCounter = document.getElementById('round-counter');
 let lifeCounter = document.getElementById('life-counter');
 let rageLevel = document.getElementById('rage-level');
-let carsPassed = document.getElementById('cars-passed')
+let carsPassed = document.getElementById('cars-passed');
+
+let collisionScreen = document.getElementById('collision-screen');
+let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
+
+
 
 
 
@@ -118,7 +123,7 @@ play_game.addEventListener("click", (e)=>{
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
     control_keys_space.style.display = "block";
-    gameCounters.style.display = "flex";
+    gameCounters.style.display = "block";
     //stopwatch run
     clock = true;
     stopWatch();
@@ -181,6 +186,17 @@ let carHorn = new Sound('../assets/car-horn2.wav')
 
 //VARIABLES end
 
+function pausingGame(){
+    if(timerInterval == null){
+        LaunchGame();
+        clock = true;
+        stopWatch();
+    } else {
+        StopGame();
+        clock = false;
+    }
+}
+
 
 // Array with driveways images //works fine now
 let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
@@ -189,8 +205,6 @@ let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas, obstaclesSpeed); // main racer object
     
     
-
-
 // SEPARATE functions START all start with Capital letter
 
 //works fine
@@ -272,11 +286,36 @@ function UpdateGame(){
         for(let i = 0; i < obstacles.length; i++){
             collision = racer.hit(obstacles[i]);
     
+            
             if(collision){
-
+                //adding screen information for a user
+                collisionScreen.style.display = 'block';
                 if(life > 0){
+                    // if(timerInterval == null){
+                    //     LaunchGame();
+                    //     clock = true;
+                    //     stopWatch();
+                    // } else {
+                    //     StopGame();
+                    //     clock = false;
+                    // }
+                    pausingGame()
                     life--;
-                    alert(`BE CAREFULL! ${life} collision left`)
+                    let tag = document.createElement("p");
+                    let text = document.createTextNode(`Be carefull,  ${life} collision left`);
+                    tag.appendChild(text);
+                    collisionScreen.appendChild(tag);
+                    setTimeout(()=>{
+                        tag.remove();
+                        collisionScreen.style.display = 'none';
+                        LaunchGame();
+                        clock = true;
+                        stopWatch();
+                    },2000)
+                    // collisionScreen.innerHTML = `BE CAREFULL! ${life} collision left`
+                    
+                    
+                    // alert(`BE CAREFULL! ${life} collision left`)
                     obstacles = [];
                     lifeCounter.innerHTML = `Life ${life}`
                 } else{
@@ -408,15 +447,16 @@ function KeyDown(e){
                 
                 break;
     
-            case 27: //Esc
-                if(timerInterval == null){
-                    LaunchGame();
-                    clock = true;
-                    stopWatch();
-                } else {
-                    StopGame();
-                    clock = false;
-                }
+            case 27: //Esc pausing game and stopwatch
+                // if(timerInterval == null){
+                //     LaunchGame();
+                //     clock = true;
+                //     stopWatch();
+                // } else {
+                //     StopGame();
+                //     clock = false;
+                // }
+                pausingGame()
                 break;
         }
     }
