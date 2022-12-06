@@ -144,8 +144,9 @@ const REFRESH_SCREEN_TIME = 1000 / 50;
 let timerInterval = null;
 
 let size = 0.1 //Moving object size
-let speed = 5;
+let speed = 6;
 let obstacles = []; //store all moving obstacles
+let obstaclesSpeed = 4; //could be triggered in tounds increasing
 
 // GAME COUNTERS
 let round = 1; // round number
@@ -185,7 +186,7 @@ let carHorn = new Sound('../assets/car-horn2.wav')
 let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
 
 // Main charachter RACER // works fine now //car1
-let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas); // main racer object
+let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas, obstaclesSpeed); // main racer object
     
     
 
@@ -216,25 +217,25 @@ function UpdateGame(){
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
-                obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas));
+                obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
         },1000)
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 2
-                obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas));
+                obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
         },2000)
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
-                obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas));
+                obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
         },3000)
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
-                obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas));
+                obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
         },4000)
 

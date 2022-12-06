@@ -1,11 +1,12 @@
 export default class MovingObject{
-    constructor(image, x, y, isRacer, speed, size, canvas){
+    constructor(image, x, y, isRacer, speed, size, canvas, obstaclesSpeed){
         this.x = x;
         this.y = y;
 
         this.speed = speed;
         this.size = size;
         this.canvas = canvas;
+        this.obstaclesSpeed = obstaclesSpeed
 
         this.collideWith = false;  // to change
         this.isRacer = isRacer;
@@ -20,7 +21,7 @@ export default class MovingObject{
 
     updateMovingObject(){
         if(!this.isRacer){ //isRacer false, means that it is not an obstacle
-            this.y += this.speed + 4; //obstacles speed
+            this.y += this.speed + this.obstaclesSpeed; //obstacles speed
         }
 
         if(this.y > this.canvas.height + 50){
