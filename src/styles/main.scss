@@ -82,6 +82,7 @@ main #control_keys_space{
     color: #FFDF00;
     color: #ffffff;
     border: none;
+    text-shadow: 0 0 3px #001604;
 
 }
 
@@ -126,6 +127,8 @@ main #control_keys_space{
     perspective: 1000px;
 }
 
+
+
 #play_game{
     width: 126px;
     height: 91px;
@@ -150,21 +153,7 @@ main #control_keys_space{
 }
 
 
-@keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-    
-    30%, 50%, 70% {
-      transform: translate3d(-2px, 0, 0);
-    }
-    40%, 60% {
-      transform: translate3d(2px, 0, 0);
-  }
-}
+
 
 .game-counters{
     display: none;
@@ -209,6 +198,12 @@ main #control_keys_space{
     cursor: default;
 }
 
+.rage-level-shake{
+    animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+    box-shadow: 0 0 50px rgb(225, 18, 18)
+}
 #cars-passed{
     margin-top: 10px;
     width: 50px;
@@ -240,4 +235,22 @@ main #control_keys_space{
     font-size: 25px;
     color: white;
     margin-top:74px
+}
+
+
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+  }
 }
