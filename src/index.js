@@ -98,7 +98,13 @@ let play_game = document.getElementById("play_game");
 let pause_game = document.getElementById("pause_game");
 let control_keys = document.getElementById("control_keys");
 let control_keys_space = document.getElementById("control_keys_space");
-let stopwatch = document.getElementById('time')
+let stopwatch = document.getElementById('time');
+
+let gameCounters = document.querySelector('.game-counters')
+let roundCounter = document.getElementById('round-counter');
+let lifeCounter = document.getElementById('life-counter');
+let rageLevel = document.getElementById('rage-level');
+
 
 
 play_game.addEventListener("click", (e)=>{
@@ -111,6 +117,7 @@ play_game.addEventListener("click", (e)=>{
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
     control_keys_space.style.display = "block";
+    gameCounters.style.display = "flex";
     //stopwatch run
     clock = true;
     stopWatch();
@@ -139,8 +146,15 @@ let size = 0.1 //Moving object size
 let speed = 5;
 let obstacles = []; //store all moving obstacles
 
-//road rage, remove obstacles, "n" amount of attempts
-let rage = 3;
+// GAME COUNTERS
+let round = 1; // round number
+roundCounter.innerHTML = `Round ${round}`
+
+let life = 3; // "life" left
+lifeCounter.innerHTML = `Life ${life}`
+
+let rage = 3; //road rage, remove obstacles, "n" amount of attempts
+rageLevel.innerHTML = `Rage ${rage}`
 
 //VARIABLES end
 
@@ -218,8 +232,9 @@ function UpdateGame(){
         racer.updateMovingObject();
     
         if(racer.collideWith){
-            // alert("OHHHHH CRASH!");
-            StopGame();
+            // alert("!!!!!!!!!OHHHHH CRASH!");
+            // StopGame();
+            
         }
     
         let isDestroyed = false; 
@@ -241,11 +256,23 @@ function UpdateGame(){
             collision = racer.hit(obstacles[i]);
     
             if(collision){
-                // alert("OHHHHH CRASH!");
-                StopGame();
-                clock = false; // stop clock when collision
-                racer.collideWith = true;
-                break;
+
+                if(life > 0){
+                    life--;
+                    alert(`BE CAREFULL! ${life} collision left`)
+                    obstacles = [];
+                    lifeCounter.innerHTML = `Life ${life}`
+                } else{
+                    alert("You're a bad driver")
+                    StopGame();
+                    clock = false; // stop clock when collision
+                    racer.collideWith = true;
+                    break;
+                }
+                // StopGame();
+                // clock = false; // stop clock when collision
+                // racer.collideWith = true;
+                // break;
             }
         }
         
@@ -300,17 +327,20 @@ function drawMovingObject(movingObject){
         );
     }
 
-//
+    
+//Rage effect for canvas  START
+
 function shakeCanvas(){
     let canvasShake = document.getElementById('game-canvas');
-        canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
-        canvasShake.classList.add("shacky-canvas");
 
         if(rage > 0){
-            console.log(rage, "before action")
+            canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
+            canvasShake.classList.add("shacky-canvas");
+            // console.log(rage, "before action")
             obstacles = [];
             rage--;
-            console.log(rage, "after action")
+            rageLevel.innerHTML = `Rage ${rage}`
+            // console.log(rage, "after action")
         } else {
             alert('No more rage, please chill!')
         }
@@ -320,6 +350,10 @@ function shakeCanvas(){
             canvasShake.style ="box-shadow: 0 0 24px rgb(21, 199, 223)";
         },1500)
 }
+
+
+
+
 
 //that's fine as well
 function KeyDown(e){

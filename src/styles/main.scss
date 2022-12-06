@@ -75,45 +75,42 @@ main #control_keys_space{
 	padding: 0.375em 1.5em;
 	text-decoration: none;
 	text-shadow: 0 0.0625em 0 #ffffff;
+    background-color: #6f029793;
+    color: #FFDF00;
+    border: none;
+
 }
 
 .myButton:hover{
-    background: #6f029793;
+    background: #58017793;
     color: white;
 }
-
 
 //stopwatch
 #time{
     display: none;
-    background: #6f029793;
-    color: #FFDF00;
     letter-spacing: 1px;
     position: absolute;
     top: 20px;
     left: 3px;
     cursor: progress;
     height: 50px;
-    border: none;
     font-size: 18px;
     padding: 14px;
 }
 
 .hide-controls {
     display: none;
-
 }
 
 #pause_game{
     display: none;
-    background: #6f029793;
-    color: #FFDF00;
     position: absolute;
     letter-spacing: 1px;
     top: 20px;
     left: 500px;
     height: 50px;
-    border: none;
+ 
     font-size: 18px;
     padding: 14px;
     
@@ -131,7 +128,6 @@ main #control_keys_space{
     position: absolute;
     top: 185px;
     left: 249px;
-    background-color: #6f029793;
     color: white;
     border: none;
     letter-spacing: 7px;
@@ -142,7 +138,6 @@ main #control_keys_space{
 
 // adding shaking effects with key frames
 #play_game:hover{
-    background-color: #6f029793;
     color: #FFDF00;
     // transform: translateY(1px);
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -166,3 +161,41 @@ main #control_keys_space{
       transform: translate3d(2px, 0, 0);
   }
 }
+
+.game-counters{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 150px;
+    left: 5px;
+
+    // background: white;
+    // width: 200px;
+    // height: 200px;
+}
+
+#round-counter{
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+   
+
+    cursor: default;
+}
+
+#life-counter{
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+  
+    cursor: default;
+}
+
+#rage-level{
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    
+    cursor: default;
+}
+
