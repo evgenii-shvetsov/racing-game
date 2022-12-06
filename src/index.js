@@ -375,18 +375,9 @@ function shakeCanvas(){
             // console.log(rage, "after action")
         } else {
             rageLevel.classList.add("rage-level-shake");
-            // alert('No more rage, please chill!')
-            // let tag = document.createElement("p");
-            // let text = document.createTextNode('No more rage, please chill!');
-            // tag.appendChild(text);
-            // collisionScreen.appendChild(tag);
-            // setTimeout(()=>{
-            //     tag.remove();
-            //     collisionScreen.style.display = 'none';
-            //     LaunchGame();
-            //     clock = true;
-            //     stopWatch();
-            // },2500)
+            setTimeout(()=>{
+                rageLevel.classList.remove("rage-level-shake");
+            },3000)
         }
 
         setTimeout(()=>{
