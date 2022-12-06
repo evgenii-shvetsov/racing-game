@@ -104,6 +104,7 @@ let gameCounters = document.querySelector('.game-counters')
 let roundCounter = document.getElementById('round-counter');
 let lifeCounter = document.getElementById('life-counter');
 let rageLevel = document.getElementById('rage-level');
+let carsPassed = document.getElementById('cars-passed')
 
 
 
@@ -156,9 +157,12 @@ lifeCounter.innerHTML = `Life ${life}`
 let rage = 3; //road rage, remove obstacles, "n" amount of attempts
 rageLevel.innerHTML = `Rage ${rage}`
 
+let disappeardCars = 0
+carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 
-// CAR HORN
-function sound(src) {
+
+// CAR HORN FUNCTION
+function Sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
@@ -172,7 +176,7 @@ function sound(src) {
       this.sound.pause();
     }
   }
-let carHorn = new sound('../assets/car-horn2.wav')
+let carHorn = new Sound('../assets/car-horn2.wav')
 
 //VARIABLES end
 
@@ -216,35 +220,24 @@ function UpdateGame(){
             }
         },1000)
 
-        // if(randomNumber(0, 10000) > 9950){  //car 1
-        //     obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas));
-        // }
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 2
                 obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas));
             }
         },2000)
-        // if(randomNumber(0, 10000) > 9950){ //car 2
-        //     obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas));
-        // }
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas));
             }
         },3000)
-        // if(randomNumber(0, 10000) > 9950){ //car 3
-        //     obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas));
-        // }
 
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas));
             }
         },4000)
-        // if(randomNumber(0, 10000) > 9950){ //car 3
-        //     obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 155), randomNumber(300, 350) * -1, false, speed, size, canvas));
-        // }
+
     
     
         racer.updateMovingObject();
@@ -264,8 +257,13 @@ function UpdateGame(){
             }
         }
     
-        if(isDestroyed){
+        if(isDestroyed){ //removing cars from canvas and counting them
+
             obstacles.shift();
+            disappeardCars++
+            carsPassed.innerHTML = `Passed cars ${disappeardCars}`
+            
+            console.log(disappeardCars)
         }
     
         let collision = false;
