@@ -156,6 +156,24 @@ lifeCounter.innerHTML = `Life ${life}`
 let rage = 3; //road rage, remove obstacles, "n" amount of attempts
 rageLevel.innerHTML = `Rage ${rage}`
 
+
+// CAR HORN
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+let carHorn = new sound('../assets/car-horn2.wav')
+
 //VARIABLES end
 
 
@@ -334,6 +352,7 @@ function shakeCanvas(){
     let canvasShake = document.getElementById('game-canvas');
 
         if(rage > 0){
+            carHorn.play();
             canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
             canvasShake.classList.add("shacky-canvas");
             // console.log(rage, "before action")
@@ -350,7 +369,7 @@ function shakeCanvas(){
             canvasShake.style ="box-shadow: 0 0 24px rgb(21, 199, 223)";
         },1500)
 }
-
+//Rage effect for canvas END
 
 
 
@@ -378,6 +397,11 @@ function KeyDown(e){
                 // Remove all obstacles from screen
                 // obstacles = [];
                 shakeCanvas()
+                break;
+
+            case 72: // Key "H"
+                //Horn sound
+                carHorn.play();
                 break;
             
             case 38: //Up
