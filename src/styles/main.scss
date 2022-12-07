@@ -56,7 +56,7 @@ main #control_keys_space{
     position: absolute;
     width: 100px;
     height: 50px;
-    top: 300px;
+    top: 378px;
     left: 511px;
 }
 
@@ -65,7 +65,7 @@ main #control_keys_pause{
     position: absolute;
     width: 50px;
     height: 50px;
-    top: 365px;
+    top: 440px;
     left: 511px;
 }
 
@@ -74,8 +74,17 @@ main #control_keys_honk{
     position: absolute;
     width: 50px;
     height: 50px;
-    top: 365px;
+    top: 440px;
     left: 567px;
+}
+
+main #control_keys_acceleration{
+    display: none;
+    position: absolute;
+    width: 126px;
+    // height: 56px;
+    top: 302px;
+    left: 504px;
 }
 
 .myButton {

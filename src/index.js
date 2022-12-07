@@ -91,6 +91,7 @@ let control_keys = document.getElementById("control_keys");
 let control_keys_space = document.getElementById("control_keys_space");
 let control_keys_pause = document.getElementById("control_keys_pause");
 let control_keys_honk = document.getElementById("control_keys_honk");
+let control_keys_acceleration = document.getElementById("control_keys_acceleration")
 let stopwatch = document.getElementById('time');
 
 let gameCounters = document.querySelector('.game-counters')
@@ -113,6 +114,7 @@ play_game.addEventListener("click", (e)=>{
     control_keys_space.style.display = "block";
     control_keys_pause.style.display = "block";
     control_keys_honk.style.display = "block";
+    control_keys_acceleration.style.display = "block";
     gameCounters.style.display = "block";
     //stopwatch run
     clock = true;
@@ -269,34 +271,25 @@ function UpdateGame(){
         //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
 
         increaseLevel()
+      
+        let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
 
-
-        // setTimeout(()=>{
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
-                // let x =randomNumber(155, canvas.width - 300);
-                // leb y = randomNumber(150, 350) * -1;
-
-                obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
+                obstacles.push(new MovingObject("../assets/cabrio.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-        // },1000)
-        
-        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 2
-                obstacles.push(new MovingObject("../assets/bugatti.png", randomNumber(155, canvas.width - 250), randomNumber(200, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
+                obstacles.push(new MovingObject("../assets/bugatti.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-        },2000)
-
-        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 3
-                obstacles.push(new MovingObject("../assets/ferrari_red.png", randomNumber(155, canvas.width - 200), randomNumber(350, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
+                obstacles.push(new MovingObject("../assets/ferrari_red.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-        },3000)
+            if(randomNumber(0, 10000) > 9950){ //car 4
+                obstacles.push(new MovingObject("../assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
+            }
+        },1000)
 
-        setTimeout(()=>{
-            if(randomNumber(0, 10000) > 9950){ //car 3
-                obstacles.push(new MovingObject("../assets/acura1.png", randomNumber(155, canvas.width - 180), randomNumber(300, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
-            }
-        },4000)
 
         racer.updateMovingObject();
     

@@ -1,4 +1,3 @@
-
 export default class DriveWay{
     constructor(image, y, speed, canvas){
         this.x = 0;
