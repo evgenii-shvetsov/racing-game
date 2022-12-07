@@ -101,6 +101,8 @@ let rageLevel = document.getElementById('rage-level');
 let carsPassed = document.getElementById('cars-passed');
 
 let collisionScreen = document.getElementById('collision-screen');
+
+let gameInstructions = document.querySelector(".tooltip")
 // let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
 
 
@@ -108,6 +110,7 @@ play_game.addEventListener("click", (e)=>{
     console.log('play is working');
     LaunchGame();
     play_game.classList.add("hide-controls");
+    gameInstructions.style.display="none"
     resetGame.style.display ="block";
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
@@ -154,7 +157,7 @@ carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 
 //added horn sound
 let carHorn = new Sound('../assets/car-horn2.wav');
-
+let crashSound = new Sound('../assets/crash_sound.wav');
 
 //VARIABLES end
 if(round == 2){

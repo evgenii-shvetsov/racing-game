@@ -273,6 +273,55 @@ main #control_keys_acceleration{
     margin-top: 18px
 }
 
+//game instruction tooltip start
+.tooltip{
+    position: relative;
+    
+}
+
+.tooltip a{
+    color: white;
+}
+
+.tooltip a span{
+    visibility: hidden;
+    cursor: default;
+    position: absolute;
+    top: -557px;
+    left: 439px;
+    width: 175px;
+    font-size: 16px;
+    padding: 11px;
+    line-height: 1.4;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 0 50px rgb(236, 40, 219);
+}
+
+#info-logo{
+    position: absolute;
+    top: -615px;
+    left: 546px;
+    width: 71px;
+    border-radius: 10px;
+}
+
+.tooltip a:hover span{
+    visibility: visible;
+}
+
+#info-logo:hover{
+    // scale: 1.1;
+    cursor: pointer;
+    visibility: visible;
+
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+//game instruction tooltip end
 
 
 @keyframes shake {
