@@ -147,7 +147,12 @@ rageLevel.innerHTML = `Rage ${rage}`
 let disappeardCars = 0
 carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 //VARIABLES end
-
+if(round == 2){
+    // roundCounter.classList.add("round-counter-animation")
+    // setTimeout(()=>{
+    //     roundCounter.classList.remove("round-counter-animation")
+    // },2000)
+}
 
 // CAR HORN FUNCTION NEED TO REFACTOR AND MOVE TO SEPARATE FILE
 function Sound(src) {
@@ -195,19 +200,23 @@ function increaseLevel(){
         round = 1;
         obstaclesSpeed = 4;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-    } else if(disappeardCars > 5 && disappeardCars < 13){
+    } else if(disappeardCars > 5 && disappeardCars < 20){
         // alert('new round')
+        roundCounter.classList.add("round-counter-animation")
         round = 2;
+        setTimeout(()=>roundCounter.classList.remove("round-counter-animation"),8000)
         roundCounter.innerHTML = `Round ${round}`
-        obstaclesSpeed = 6;
+        obstaclesSpeed = 5.5;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-    } else if (disappeardCars > 13 && disappeardCars < 20){
+    } else if (disappeardCars > 20 && disappeardCars < 30){
         // alert('new round')
+        roundCounter.classList.add("round-counter-animation1")
         round = 3;
+        // setTimeout(()=>roundCounter.classList.remove("round-counter-animation1"),8000)
         roundCounter.innerHTML = `Round ${round}`
-        obstaclesSpeed = 8;
+        obstaclesSpeed = 7;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
-    }   else if(disappeardCars === 30 ){
+    }   else if(disappeardCars === 35 ){
         collisionScreen.style.display = 'block';
         StopGame();
         clock = false; // stop clock when collision

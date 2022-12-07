@@ -185,6 +185,8 @@ main #control_keys_honk{
 }
 
 #round-counter{
+    // animation: moveRound 5s linear 1s infinite alternate;
+    // animation: moveRound 5s linear 1s  alternate;
     margin-top: 10px;
     color: #FFDF00;
     width: 50px;
@@ -194,6 +196,13 @@ main #control_keys_honk{
     left: 5px;
 
     cursor: default;
+}
+
+.round-counter-animation{
+    animation: moveRound 3s linear 0.1s  alternate;
+}
+.round-counter-animation1{
+    animation: moveRound 3s linear 0.1s  alternate;
 }
 
 #life-counter{
@@ -272,3 +281,10 @@ main #control_keys_honk{
       transform: translate3d(2px, 0, 0);
   }
 }
+
+
+@keyframes moveRound {
+    0%   {left:0px; top:0px;}
+    50%  {left:250px; top:0px;}
+    100% { left:0px; top:0px;}
+  }
