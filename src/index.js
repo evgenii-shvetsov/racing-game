@@ -4,6 +4,8 @@ import MovingObject from './scripts/moving_objects';
 // import DrawingObjects from './scripts/moving_objects'
 import Sound from './scripts/sound';
 
+// import { UpdateGame } from './scripts/utils'
+
 document.addEventListener("DOMContentLoaded", () => {
 
 console.log("hey, script was loaded")
@@ -207,8 +209,6 @@ let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.heig
 
 
 //LEVEL LOGIC
-// console.log(`${minute}:0o${second}:0o${count}`)
-
 function increaseLevel(){
     if(disappeardCars < 5){
         round = 1;
@@ -271,11 +271,14 @@ function UpdateGame(){
         increaseLevel()
 
 
-        setTimeout(()=>{
+        // setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
+                // let x =randomNumber(155, canvas.width - 300);
+                // leb y = randomNumber(150, 350) * -1;
+
                 obstacles.push(new MovingObject("../assets/cabrio.png", randomNumber(155, canvas.width - 300), randomNumber(150, 350) * -1, false, speed, size, canvas, obstaclesSpeed));
             }
-        },1000)
+        // },1000)
         
         setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){ //car 2
