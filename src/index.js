@@ -169,7 +169,28 @@ function Sound(src) {
       this.sound.pause();
     }
   }
-let carHorn = new Sound('../assets/car-horn2.wav')
+let carHorn = new Sound('../assets/car-horn2.wav');
+
+// Function to pause the game and show the pause screen
+let popupPause;
+function pauseScreen(){
+    if(timerInterval != null){
+        StopGame();
+        clock = false;
+        collisionScreen.style.display = 'block';
+        popupPause = document.createElement("p");
+        popupPause.innerHTML =`<br> <br> GAME PAUSED <br> <br> press ESC to CONTINUE`
+        collisionScreen.appendChild(popupPause);
+
+    } else {
+        LaunchGame();
+        popupPause.remove();
+        collisionScreen.style.display = 'none';
+        clock = true;
+        stopWatch();
+    
+    }
+}
 
 
 // Function to start/pause game
@@ -181,7 +202,9 @@ function pausingGame(){
     } else {
         StopGame();
         clock = false;
+
     }
+    
 }
 
 
@@ -201,7 +224,6 @@ function increaseLevel(){
         obstaclesSpeed = 4;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
     } else if(disappeardCars > 5 && disappeardCars < 20){
-        // alert('new round')
         roundCounter.classList.add("round-counter-animation")
         round = 2;
         setTimeout(()=>roundCounter.classList.remove("round-counter-animation"),8000)
@@ -209,7 +231,6 @@ function increaseLevel(){
         obstaclesSpeed = 5.5;
         console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
     } else if (disappeardCars > 20 && disappeardCars < 30){
-        // alert('new round')
         roundCounter.classList.add("round-counter-animation1")
         round = 3;
         // setTimeout(()=>roundCounter.classList.remove("round-counter-animation1"),8000)
@@ -472,7 +493,8 @@ function KeyDown(e){
                 break;
     
             case 27: //Esc pausing game and stopwatch
-                pausingGame()
+                // pausingGame()
+                pauseScreen()
                 break;
         }
     }
