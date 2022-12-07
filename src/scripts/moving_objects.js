@@ -48,14 +48,20 @@ export default class MovingObject{
         if(vector == "x"){ 
             acceleration *= playerAcceleration; 
             this.x += acceleration; //sliding on Axis X
-
+               
+            //This is for all canvas move
             //Restricting the ability to move out of the canvas on Axis X; resetting values
-            if(this.x + this.image.width * this.size > this.canvas.width){
+            // if(this.x + this.image.width * this.size > this.canvas.width){
+            //     this.x -= acceleration; 
+            // }
+            //Restricting the ability to move out of the canvas on Axis X; resetting values
+            if(this.x+121 + this.image.width * this.size > this.canvas.width){
                 this.x -= acceleration; 
             }
-    
-            if(this.x < 0){
-                this.x = 0;
+            //default values are 0 for Axis X
+            if(this.x < 132){
+                // this.x = 120;
+                this.x = 132
             }
 
         } else { 

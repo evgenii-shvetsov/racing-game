@@ -158,6 +158,8 @@ carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 //added horn sound
 let carHorn = new Sound('../assets/car-horn2.wav');
 let crashSound = new Sound('../assets/crash_sound.wav');
+// let crashSound = new Sound('../assets/car-crash1.mp3');
+
 
 //VARIABLES end
 if(round == 2){
@@ -322,6 +324,7 @@ function UpdateGame(){
             collision = racer.hit(obstacles[i]);
     
             if(collision){
+                crashSound.play();
                 //adding screen information for a user
                 collisionScreen.style.display = 'block';
                 if(life > 0){
