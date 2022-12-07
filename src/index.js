@@ -2,6 +2,7 @@
 import DriveWay from './scripts/driveway';
 import MovingObject from './scripts/moving_objects';
 // import DrawingObjects from './scripts/moving_objects'
+import Sound from './scripts/sound';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -81,7 +82,7 @@ canvas.width = 626;
 canvas.height = 626;
 
 // WORKING WITH DOM
-let controls = document.querySelector(".controls");
+// let controls = document.querySelector(".controls");
 let play_game = document.getElementById("play_game");
 let resetGame = document.getElementById("resetGame");
 let control_keys = document.getElementById("control_keys");
@@ -97,7 +98,7 @@ let rageLevel = document.getElementById('rage-level');
 let carsPassed = document.getElementById('cars-passed');
 
 let collisionScreen = document.getElementById('collision-screen');
-let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
+// let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
 
 
 play_game.addEventListener("click", (e)=>{
@@ -146,6 +147,11 @@ rageLevel.innerHTML = `Rage ${rage}`
 
 let disappeardCars = 0
 carsPassed.innerHTML = `Passed cars ${disappeardCars}`
+
+//added horn sound
+let carHorn = new Sound('../assets/car-horn2.wav');
+
+
 //VARIABLES end
 if(round == 2){
     // roundCounter.classList.add("round-counter-animation")
@@ -154,22 +160,7 @@ if(round == 2){
     // },2000)
 }
 
-// CAR HORN FUNCTION NEED TO REFACTOR AND MOVE TO SEPARATE FILE
-function Sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-      this.sound.play();
-    }
-    this.stop = function(){
-      this.sound.pause();
-    }
-  }
-let carHorn = new Sound('../assets/car-horn2.wav');
+
 
 // Function to pause the game and show the pause screen
 let popupPause;
