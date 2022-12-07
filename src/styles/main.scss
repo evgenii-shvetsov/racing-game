@@ -60,6 +60,24 @@ main #control_keys_space{
     left: 511px;
 }
 
+main #control_keys_pause{
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 365px;
+    left: 511px;
+}
+
+main #control_keys_honk{
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 365px;
+    left: 567px;
+}
+
 .myButton {
     min-width: 122px;/**/
     min-height: 70px;

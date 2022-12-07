@@ -86,6 +86,8 @@ let play_game = document.getElementById("play_game");
 let resetGame = document.getElementById("resetGame");
 let control_keys = document.getElementById("control_keys");
 let control_keys_space = document.getElementById("control_keys_space");
+let control_keys_pause = document.getElementById("control_keys_pause");
+let control_keys_honk = document.getElementById("control_keys_honk");
 let stopwatch = document.getElementById('time');
 
 let gameCounters = document.querySelector('.game-counters')
@@ -106,6 +108,8 @@ play_game.addEventListener("click", (e)=>{
     stopwatch.style.display = "block";
     control_keys.style.display = "block";
     control_keys_space.style.display = "block";
+    control_keys_pause.style.display = "block";
+    control_keys_honk.style.display = "block";
     gameCounters.style.display = "block";
     //stopwatch run
     clock = true;
@@ -185,10 +189,6 @@ let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.heig
 
 //LEVEL LOGIC
 // console.log(`${minute}:0o${second}:0o${count}`)
-
-
-
-
 
 function increaseLevel(){
     if(disappeardCars < 5){
@@ -307,10 +307,6 @@ function UpdateGame(){
                 if(life > 0){
                     pausingGame()
                     life--;
-                    // let tag = document.createElement("p");
-                    // let text = document.createTextNode(`Hey, you hit a car! ${life} collision(s) left`);
-                    // tag.appendChild(text);
-
                     let tag = document.createElement("p");
                     tag.innerHTML =`<br> <br>Hey, you hit a car! <br> <br>
                      ${life} collision(s) left`
@@ -338,11 +334,6 @@ function UpdateGame(){
                     `
                     collisionScreen.appendChild(tag);
                     resetGame.classList.add("rage-level-shake");
-
-
-
-
-                    
                     break;
                 }
 
