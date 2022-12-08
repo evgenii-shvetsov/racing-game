@@ -8,7 +8,7 @@ import Sound from './scripts/sound';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-console.log("hey, script was loaded")
+// console.log("hey, script was loaded")
 
 window.addEventListener("keydown", function (e) { KeyDown(e); }); 
 
