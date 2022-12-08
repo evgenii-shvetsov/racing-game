@@ -1,11 +1,10 @@
-<!-- # Crazy Ride -->
-[Crazy Ride](https://evgenii-shvetsov.github.io/racing-game/)
+# [Crazy Ride](https://evgenii-shvetsov.github.io/racing-game/)
 
-### Background
+## Background
 
 **Crazy Ride** is a 2D game with a top-down view. A racer will ride on a street, trying to avoid collisions with randomly appearing crazy drivers. The racer move all around the canvas. There is a "Rage Mode" to remove obstacles from the street. There are 3 number of the "rage mode" and an 3 possible collisions. A stopwatch starts at the same time a user starts the game. A goal is to survive 3 rounds. 
 
-### How to Play
+## How to Play
 **Control keys:**
 - W A S D keys to move
 - ↑ to accelerate
@@ -14,7 +13,7 @@
 - SPACE to activate Rag
 - ESC to Pause/Resume
 
-### Functionality & MVPs
+## Functionality & MVPs
 
 In the “Crazy Ride” game, users will be able to:
 
@@ -29,21 +28,21 @@ In Addition, this project will include:
 
 
 
-### Layout
+## Layout
 
-#### Landing Page
+### Landing Page
 
-#### Gameplay
+### Gameplay
 
-#### Pause screen
+### Pause screen
 
-#### Collision screen
+### Collision screen
 
-#### Win screen
+### Win screen
 
-#### Game Over screen
+### Game Over screen
 
-### Technologies, Libraries, APIs
+## Technologies, Libraries, APIs
 
 This project was created using the following technologies:
 - HTML5
@@ -53,7 +52,7 @@ This project was created using the following technologies:
 - npm to manage project dependencies
 
 
-### Implementation Timeline
+## Implementation Timeline
 
 Friday Afternoon & Weekend
 - The HTML structure for the project.
@@ -88,4 +87,4 @@ Friday Afternoon & Weekend
 - Prepare for the presentation.
 
 
-### Future features
+## Future features
