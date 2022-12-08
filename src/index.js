@@ -173,7 +173,7 @@ soundControl.addEventListener("click", (e)=>{
 
 let carHorn = new Sound('../assets/car-horn2.wav');
 let crashSound = new Sound('../assets/crash_sound.wav');
-// let crashSound = new Sound('../assets/car-crash1.mp3');
+let highwaySound = new Sound('../assets/highway-sound.mp3')
 
 
 //VARIABLES end
@@ -191,6 +191,14 @@ let popupPause;
 function pauseScreen(){
     if(timerInterval != null){
         StopGame();
+
+        //pausing main sound
+        if(!mute){
+            highwaySound.stop()
+        }
+
+
+        // if(!mute) highwaySound.pause()
         clock = false;
         collisionScreen.style.display = 'block';
         popupPause = document.createElement("p");
@@ -199,6 +207,13 @@ function pauseScreen(){
 
     } else {
         LaunchGame();
+
+        //playing main sound
+        if(!mute){
+            highwaySound.play()
+        }
+
+        // if(!mute) highwaySound.play() //sound on
         popupPause.remove();
         collisionScreen.style.display = 'none';
         clock = true;
@@ -212,10 +227,24 @@ function pauseScreen(){
 function pausingGame(){
     if(timerInterval == null){
         LaunchGame();
+
+        //playing main sound
+        if(!mute){
+            highwaySound.play()
+        }
+
+        // if(!mute) highwaySound.play() //sound on
         clock = true;
         stopWatch();
     } else {
         StopGame();
+
+  //pausing main sound
+    if(!mute){
+        highwaySound.stop()
+    }
+
+        // if(!mute) highwaySound.pause()
         clock = false;
 
     }
@@ -253,6 +282,9 @@ function increaseLevel(){
     }   else if(disappeardCars === 35 ){
         collisionScreen.style.display = 'block';
         StopGame();
+        if(!mute){
+            highwaySound.stop()
+        }
         clock = false; // stop clock when collision
         let tag = document.createElement("p");
         tag.innerHTML =`
@@ -285,7 +317,12 @@ function StopGame(){
 function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
-
+      
+        if(!mute){
+            highwaySound.play()
+        } else {
+            highwaySound.stop()
+        }
         //TESTING TIMER
         
         //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
@@ -364,6 +401,9 @@ function UpdateGame(){
                 } else{
 
                     StopGame();
+                    if(!mute){
+                        highwaySound.stop()
+                    }
                     clock = false; // stop clock when collision
                     let tag = document.createElement("p");
                     tag.innerHTML =`
