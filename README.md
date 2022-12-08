@@ -1,17 +1,25 @@
-# Tram on rails game
-
+<!-- # Crazy Ride -->
+[Crazy Ride](https://evgenii-shvetsov.github.io/racing-game/)
 
 ### Background
 
+**Crazy Ride** is a 2D game with a top-down view. A racer will ride on a street, trying to avoid collisions with randomly appearing crazy drivers. The racer move all around the canvas. There is a "Rage Mode" to remove obstacles from the street. There are 3 number of the "rage mode" and an 3 possible collisions. A stopwatch starts at the same time a user starts the game. A goal is to survive 3 rounds. 
 
-**Tram on rails** is a 2D game with a top-down view. A tram/cable car will ride on San Francisco Street, trying to avoid collisions with randomly appearing taxi cabs. A tram could go straight/left/right and back. When it honks, taxi cabs will disappear from the screen. There will be an “n” number of honks and an “n” number of possible collisions. A stopwatch starts at the same time a user starts the game. A goal is to avoid obstacles as long as you can. 
+### How to Play
+**Control keys:**
+- W A S D keys to move
+- ↑ to accelerate
+- ↓ to slow down
+- H to Honk
+- SPACE to activate Rag
+- ESC to Pause/Resume
 
 ### Functionality & MVPs
 
-In the “Tram on rails” game, users will be able to:
+In the “Crazy Ride” game, users will be able to:
 
 - Interact with the website page, click links, mute sound, start and pause the game
-- Move a tram/ cable car in all directions on the road in Canvas
+- Move a car in all directions on the road in Canvas
 - Honk cars to avoid collision and remove objects
 - Keep track of the stopwatch and the number of collisions left
 
@@ -21,12 +29,23 @@ In Addition, this project will include:
 
 
 
-### Wireframes
-![My Image](assets/wireframes.jpg)
+### Layout
+
+#### Landing Page
+
+#### Gameplay
+
+#### Pause screen
+
+#### Collision screen
+
+#### Win screen
+
+#### Game Over screen
 
 ### Technologies, Libraries, APIs
 
-This project will be implemented with the following technologies:
+This project was created using the following technologies:
 - HTML5
 - CSS3 
 - The Canvas API to render the game board
@@ -67,3 +86,6 @@ Friday Afternoon & Weekend
 - Finalize the project. 
 - Post on the server.
 - Prepare for the presentation.
+
+
+### Future features
