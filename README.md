@@ -84,7 +84,7 @@ move(vector, acceleration,playerAcceleration) {
             }
         } else { 
             acceleration *= playerAcceleration;
-            this.y += acceleration; //sliding on Axis Y
+            this.y += acceleration;
             if(this.y + this.image.height * this.size > this.canvas.height){
                 this.y -= acceleration;
             }
@@ -94,6 +94,30 @@ move(vector, acceleration,playerAcceleration) {
         }
     }
 
+```
+
+Remove obstacles from canvas with shacking effect:
+```javascript
+function shakeCanvas(){
+    let canvasShake = document.getElementById('game-canvas');
+        if(rage > 0){
+            if(!mute) carHorn.play()
+            canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
+            canvasShake.classList.add("shacky-canvas");
+            obstacles = [];
+            rage--;
+            rageLevel.innerHTML = `Rage ${rage}`
+        } else {
+            rageLevel.classList.add("rage-level-shake");
+            setTimeout(()=>{
+                rageLevel.classList.remove("rage-level-shake");
+            },3000)
+        }
+        setTimeout(()=>{
+            canvasShake.classList.remove("shacky-canvas");
+            canvasShake.style ="box-shadow: 0 0 24px rgb(21, 199, 223)";
+        },1500)
+}
 ```
 
 
@@ -143,3 +167,7 @@ Friday Afternoon & Weekend
 
 
 ## Future features
+- Add increase speed animation
+- Improve level logic by adding additional rounds
+- Improve placing random objects on canvas
+
