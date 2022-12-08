@@ -55,7 +55,8 @@ In Addition, this project will include:
 
 
 ### Game Over screen
-![loose-screen](https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg)
+<!-- ![loose-screen](https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg) -->
+<img src="https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg" width="200px" height="300px">
 
 
 ## Technologies, Libraries, APIs
