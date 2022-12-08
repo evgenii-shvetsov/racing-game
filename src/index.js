@@ -101,6 +101,7 @@ let rageLevel = document.getElementById('rage-level');
 let carsPassed = document.getElementById('cars-passed');
 
 let collisionScreen = document.getElementById('collision-screen');
+let soundControl = document.querySelector(".sound-control");
 
 let gameInstructions = document.querySelector(".tooltip")
 // let lackOfRangeScreen = document.getElementById('lack-of-rage-screen');
@@ -155,19 +156,33 @@ rageLevel.innerHTML = `Rage ${rage}`
 let disappeardCars = 0
 carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 
-//added horn sound
+//SOUND AREA
+let mute = false;
+soundControl.addEventListener("click", (e)=>{
+    console.log("sound control is working")
+    if(mute===false){
+        mute = true
+        soundControl.src = "/assets/sound-off.png"
+        console.log(mute, "mute on")
+    } else{
+        mute = false
+        soundControl.src = "/assets/sound-on.png"
+        console.log(mute, "mute off")
+    }
+})
+
 let carHorn = new Sound('../assets/car-horn2.wav');
 let crashSound = new Sound('../assets/crash_sound.wav');
 // let crashSound = new Sound('../assets/car-crash1.mp3');
 
 
 //VARIABLES end
-if(round == 2){
-    // roundCounter.classList.add("round-counter-animation")
-    // setTimeout(()=>{
-    //     roundCounter.classList.remove("round-counter-animation")
-    // },2000)
-}
+// if(round == 2){
+//     // roundCounter.classList.add("round-counter-animation")
+//     // setTimeout(()=>{
+//     //     roundCounter.classList.remove("round-counter-animation")
+//     // },2000)
+// }
 
 
 
@@ -324,7 +339,8 @@ function UpdateGame(){
             collision = racer.hit(obstacles[i]);
     
             if(collision){
-                crashSound.play();
+                if(!mute) crashSound.play();
+                // crashSound.play();
                 //adding screen information for a user
                 collisionScreen.style.display = 'block';
                 if(life > 0){
@@ -421,7 +437,8 @@ function shakeCanvas(){
     let canvasShake = document.getElementById('game-canvas');
 
         if(rage > 0){
-            carHorn.play();
+            if(!mute) carHorn.play()
+            // carHorn.play();
             canvasShake.style ="box-shadow: 0 0 50px rgb(225, 18, 18)";
             canvasShake.classList.add("shacky-canvas");
             // console.log(rage, "before action")
@@ -473,7 +490,7 @@ function KeyDown(e){
 
             case 72: // Key "H"
                 //Horn sound
-                carHorn.play();
+                if(!mute) carHorn.play()
                 break;
             
             case 38: //Up
