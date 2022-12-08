@@ -129,6 +129,7 @@ main #control_keys_acceleration{
     height: 50px;
     font-size: 18px;
     padding: 14px;
+    padding-top: 25px;
 }
 
 .hide-controls {
@@ -247,6 +248,7 @@ main #control_keys_acceleration{
     position: absolute;
     top:157px;
     left: 6px;
+    padding-left: 20px;
     cursor: default;
 }
 
@@ -327,7 +329,7 @@ main #control_keys_acceleration{
 .sound-control{
     width: 40px;
     position: absolute;
-    bottom: 50px;
+    top: 578px;
     left: 15px;
     // margin-right: 35px;
     // margin-top: 30px;

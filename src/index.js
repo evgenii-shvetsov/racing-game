@@ -108,7 +108,7 @@ let gameInstructions = document.querySelector(".tooltip")
 
 
 play_game.addEventListener("click", (e)=>{
-    console.log('play is working');
+    // console.log('play is working');
     LaunchGame();
     play_game.classList.add("hide-controls");
     gameInstructions.style.display="none"
@@ -126,7 +126,7 @@ play_game.addEventListener("click", (e)=>{
 })
 
 resetGame.addEventListener("click", (e)=>{
-    console.log('reset is working')
+    // console.log('reset is working')
     window.location.reload()
 })
 
@@ -159,15 +159,15 @@ carsPassed.innerHTML = `Passed cars ${disappeardCars}`
 //SOUND AREA
 let mute = false;
 soundControl.addEventListener("click", (e)=>{
-    console.log("sound control is working")
+    // console.log("sound control is working")
     if(mute===false){
         mute = true
         soundControl.src = "/assets/sound-off.png"
-        console.log(mute, "mute on")
+        // console.log(mute, "mute on")
     } else{
         mute = false
         soundControl.src = "/assets/sound-on.png"
-        console.log(mute, "mute off")
+        // console.log(mute, "mute off")
     }
 })
 
@@ -235,21 +235,21 @@ function increaseLevel(){
     if(disappeardCars < 5){
         round = 1;
         obstaclesSpeed = 4;
-        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+        // console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
     } else if(disappeardCars > 5 && disappeardCars < 20){
         roundCounter.classList.add("round-counter-animation")
         round = 2;
         setTimeout(()=>roundCounter.classList.remove("round-counter-animation"),8000)
         roundCounter.innerHTML = `Round ${round}`
         obstaclesSpeed = 5.5;
-        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+        // console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
     } else if (disappeardCars > 20 && disappeardCars < 30){
         roundCounter.classList.add("round-counter-animation1")
         round = 3;
         // setTimeout(()=>roundCounter.classList.remove("round-counter-animation1"),8000)
         roundCounter.innerHTML = `Round ${round}`
         obstaclesSpeed = 7;
-        console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
+        // console.log(`in increase level! round:${round}, obstaclespeed:${obstaclesSpeed}`)
     }   else if(disappeardCars === 35 ){
         collisionScreen.style.display = 'block';
         StopGame();
@@ -495,11 +495,11 @@ function KeyDown(e){
             
             case 38: //Up
                 playerAcceleration++;
-                console.log(`Acceleration: ${playerAcceleration}`)
+                // console.log(`Acceleration: ${playerAcceleration}`)
                 break;
             case 40: //down
                 playerAcceleration--;
-                console.log(`Acceleration: ${playerAcceleration}`)
+                // console.log(`Acceleration: ${playerAcceleration}`)
                 break;
     
             case 27: //Esc pausing game and stopwatch
