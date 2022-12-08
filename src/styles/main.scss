@@ -323,6 +323,26 @@ main #control_keys_acceleration{
 
 //game instruction tooltip end
 
+//sound control
+.sound-control{
+    width: 40px;
+    position: absolute;
+    bottom: 50px;
+    left: 15px;
+    // margin-right: 35px;
+    // margin-top: 30px;
+}
+
+.sound-control:hover{
+    cursor: pointer;
+    // opacity: 0.9;
+    // scale: 1.1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+
 
 @keyframes shake {
     10%, 90% {
