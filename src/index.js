@@ -505,6 +505,7 @@ function shakeCanvas(){
 
 //that's fine as well
 function KeyDown(e){
+    e.preventDefault();
         switch(e.keyCode){
             case 65: //Left
                 racer.move("x", -speed, playerAcceleration);
