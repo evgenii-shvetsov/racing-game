@@ -162,7 +162,7 @@ soundControl.addEventListener("click", (e)=>{
     // console.log("sound control is working")
     if(mute===false){
         mute = true
-        soundControl.src = "/assets/sound-off.png"
+        soundControl.src = "../racing-game/assets/sound-off.png"
         // console.log(mute, "mute on")
     } else{
         mute = false
@@ -253,7 +253,7 @@ function pausingGame(){
 
 
 // Array with driveways images //works fine now
-let driveWays = [new DriveWay('../assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
+let driveWays = [new DriveWay('../racing-game/assets/driveway1.jpeg', 0, speed, canvas), new DriveWay('../racing-game/assets/driveway1.jpeg', canvas.width, speed, canvas)]; 
 
 // Main charachter RACER // works fine now //car1
 let racer = new MovingObject("../assets/car1.png", canvas.width / 2, canvas.height / 1.3, true, speed, size, canvas, obstaclesSpeed); // main racer object
