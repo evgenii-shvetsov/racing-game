@@ -2,7 +2,7 @@
 
 ## Background
 
-**Crazy Ride** is a 2D game with a top-down view. A racer will ride on a street, trying to avoid collisions with randomly appearing crazy drivers. The racer move all around the canvas. There is a "Rage Mode" to remove obstacles from the street. There are 3 number of the "rage mode" and an 3 possible collisions. A stopwatch starts at the same time a user starts the game. A goal is to survive 3 rounds. 
+**Crazy Ride** is a 2D game with a top-down view. A racer will ride on a street, trying to avoid collisions with randomly appearing crazy drivers. The racer moves all around the canvas. There is a "Rage Mode" to remove obstacles from the street. There are three rage modes and three possible collisions. A stopwatch starts when a user starts the game. A goal is to survive three rounds.
 
 ## How to Play
 **Control keys:**
@@ -170,4 +170,3 @@ Friday Afternoon & Weekend
 - Add increase speed animation
 - Improve level logic by adding additional rounds
 - Improve placing random objects on canvas
-
