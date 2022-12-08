@@ -162,11 +162,11 @@ soundControl.addEventListener("click", (e)=>{
     // console.log("sound control is working")
     if(mute===false){
         mute = true
-        soundControl.src = "/assets/sound-off.png"
+        soundControl.src = "assets/sound-off.png"
         // console.log(mute, "mute on")
     } else{
         mute = false
-        soundControl.src = "/assets/sound-on.png"
+        soundControl.src = "assets/sound-on.png"
         // console.log(mute, "mute off")
     }
 })
