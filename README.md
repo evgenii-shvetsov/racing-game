@@ -58,6 +58,44 @@ In Addition, this project will include:
 <!-- ![loose-screen](https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg) -->
 <img src="https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg" width="400px" height="500px">
 
+## Implementation details
+Collision logic implementation:
+```javascript
+hit(movingObject){
+        let collisionStatus = false;
+        if(this.y < movingObject.y + movingObject.image.height * this.size && this.y + this.image.height * this.size > movingObject.y){ 
+        if(this.x + this.image.width * this.size > movingObject.x && this.x < movingObject.x + movingObject.image.width * this.size){ 
+                collisionStatus = true;
+            }
+        }
+        return collisionStatus;
+    }
+```
+
+Moving on canvas:
+```javascript
+move(vector, acceleration,playerAcceleration) {
+        if(vector == "x"){ 
+            acceleration *= playerAcceleration; 
+            this.x += acceleration;
+            }
+            if(this.x < 132){
+                this.x = 132
+            }
+        } else { 
+            acceleration *= playerAcceleration;
+            this.y += acceleration; //sliding on Axis Y
+            if(this.y + this.image.height * this.size > this.canvas.height){
+                this.y -= acceleration;
+            }
+            if(this.y < 0){
+                this.y = 0;
+            }
+        }
+    }
+
+```
+
 
 ## Technologies, Libraries, APIs
 
