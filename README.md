@@ -31,16 +31,32 @@ In Addition, this project will include:
 ## Layout
 
 ### Landing Page
+![landing-page](https://user-images.githubusercontent.com/46214277/206549617-2296477b-ee6a-40a7-9030-49da244d50d2.jpg)
+
+
+### Instructions
+![instructions](https://user-images.githubusercontent.com/46214277/206549656-1bed229c-8695-4e77-be0b-8c571886791e.jpg)
+
 
 ### Gameplay
+![gameplay](https://user-images.githubusercontent.com/46214277/206549716-350ce3b0-4965-46a3-83d7-e3c38909ee05.jpg)
+
 
 ### Pause screen
+![pause-screen](https://user-images.githubusercontent.com/46214277/206549754-e91ae34b-b19f-46f4-aa44-b9a7ef4faf80.jpg)
+
 
 ### Collision screen
+![hit-screen](https://user-images.githubusercontent.com/46214277/206549783-741df344-b19b-442a-a1fc-6fcef382540f.jpg)
+
 
 ### Win screen
+![win-screen](https://user-images.githubusercontent.com/46214277/206549804-c273d4e3-c0e7-41d9-a2c6-61b15a9dc49f.jpg)
+
 
 ### Game Over screen
+![loose-screen](https://user-images.githubusercontent.com/46214277/206549914-fc510a10-420b-4310-9722-5b0bf2b6a503.jpg)
+
 
 ## Technologies, Libraries, APIs
 
