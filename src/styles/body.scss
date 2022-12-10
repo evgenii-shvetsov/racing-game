@@ -55,9 +55,14 @@ body {
 }
 
 @media only screen and (max-height: 900px) {
-
     body {
         background-size: 100% 120%;
     }
-    
-    }
+}
+
+@media only screen and (max-height: 760px) {
+
+    body {
+        background-size: 100% 150%;
+        }        
+}
