@@ -41,6 +41,7 @@ body {
     // background: rgb(225, 222, 222);
     background-image:url('../assets/background_body1.jpeg');
     background-size: 100% 100%;
+    // background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -52,3 +53,11 @@ body {
     min-height: 100vh;
     max-width: 950px;
 }
+
+@media only screen and (max-height: 900px) {
+
+    body {
+        background-size: 100% 120%;
+    }
+    
+    }
