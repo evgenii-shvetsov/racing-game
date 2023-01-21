@@ -317,6 +317,22 @@ function StopGame(){
 function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
+
+
+                // Clearing the canvas
+                context.clearRect(0, 0, canvas.width, canvas.height);
+      
+                // // Draw obstacles
+                obstacles.sort((a, b) => a.y - b.y)
+                for(let i = 0; i < obstacles.length; i++){
+                    obstacles[i].updateMovingObject();
+                    obstacles[i].draw();
+                }
+             // Draw obstacles
+            // for(let i = 0; i < obstacles.length; i++){
+            //     obstacles[i].updateMovingObject();
+            //     obstacles[i].draw();
+            // }
       
         if(!mute){
             highwaySound.play()
