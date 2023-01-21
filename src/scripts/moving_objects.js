@@ -20,27 +20,54 @@ export default class MovingObject{
         this.image.src = image;
     }
 
-    updateMovingObject(){
-        if(!this.isRacer){ //isRacer false, means that it is not an obstacle
-            this.y += this.speed + this.obstaclesSpeed; //obstacles speed
-        }
+    // updateMovingObject(){
+    //     if(!this.isRacer){ //isRacer false, means that it is not an obstacle
+    //         this.y += this.speed + this.obstaclesSpeed; //obstacles speed
+    //     }
 
-        if(this.y > this.canvas.height + 50){
-            this.collideWith = true;
+    //     if(this.y > this.canvas.height + 50){
+    //         this.collideWith = true;
+    //     }
+    // }
+
+    updateMovingObject() {
+        if(!this.isRacer) {
+            this.y += this.speed + this.obstaclesSpeed;
+            if(this.y > this.canvas.height + 50) {
+                obstacles.splice(obstacles.indexOf(this), 1);
+            }
+        } else {
+            this.x += this.xInput * this.playerAcceleration;
+            this.y += this.yInput * this.playerAcceleration;
         }
     }
 
+    // hit(movingObject){
+    //     let collisionStatus = false;
+
+    //     if(this.y < movingObject.y + movingObject.image.height * this.size && this.y + this.image.height * this.size > movingObject.y){ //If there is collision by y
+        
+    //         if(this.x + this.image.width * this.size > movingObject.x && this.x < movingObject.x + movingObject.image.width * this.size){ //If there is collision by x
+            
+    //             collisionStatus = true;
+    //         }
+    //     }
+
+    //     return collisionStatus;
+    // }
+
     hit(movingObject){
         let collisionStatus = false;
-
+    
         if(this.y < movingObject.y + movingObject.image.height * this.size && this.y + this.image.height * this.size > movingObject.y){ //If there is collision by y
         
             if(this.x + this.image.width * this.size > movingObject.x && this.x < movingObject.x + movingObject.image.width * this.size){ //If there is collision by x
             
                 collisionStatus = true;
+                obstacles.splice(obstacles.indexOf(movingObject), 1) //remove obstacle from obstacles array
             }
         }
-
+    
         return collisionStatus;
     }
 
