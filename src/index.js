@@ -330,20 +330,28 @@ function UpdateGame(){
 
         increaseLevel()
       
-        let randX =randomNumber(155, canvas.width - 190);
-        let randY = randomNumber(150, 350) * -1;
+        // let randX =randomNumber(155, canvas.width - 190);
+        // let randY = randomNumber(150, 350) * -1;
 
-        setInterval(()=>{
+        setTimeout(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
+                let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
                 obstacles.push(new MovingObject("assets/cabrio.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 2
+                let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
                 obstacles.push(new MovingObject("assets/bugatti.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 3
+                let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
                 obstacles.push(new MovingObject("assets/ferrari_red.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 4
+                let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
                 obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
         },1000)
