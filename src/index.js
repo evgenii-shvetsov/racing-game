@@ -342,9 +342,9 @@ function UpdateGame(){
             if(randomNumber(0, 10000) > 9950){ //car 3
                 obstacles.push(new MovingObject("assets/ferrari_red.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-            if(randomNumber(0, 10000) > 9950){ //car 4
-                obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
-            }
+            // if(randomNumber(0, 10000) > 9950){ //car 4
+            //     obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
+            // }
         },1000)
 
 
