@@ -318,21 +318,6 @@ function UpdateGame(){
         driveWays[0].updateDriveWay(driveWays[1]);
         driveWays[1].updateDriveWay(driveWays[0]);
 
-
-                // Clearing the canvas
-                context.clearRect(0, 0, canvas.width, canvas.height);
-      
-                // // Draw obstacles
-                obstacles.sort((a, b) => a.y - b.y)
-                for(let i = 0; i < obstacles.length; i++){
-                    obstacles[i].updateMovingObject();
-                    obstacles[i].draw();
-                }
-             // Draw obstacles
-            // for(let i = 0; i < obstacles.length; i++){
-            //     obstacles[i].updateMovingObject();
-            //     obstacles[i].draw();
-            // }
       
         if(!mute){
             highwaySound.play()
@@ -345,28 +330,20 @@ function UpdateGame(){
 
         increaseLevel()
       
-        // let randX =randomNumber(155, canvas.width - 190);
-        // let randY = randomNumber(150, 350) * -1;
+        let randX =randomNumber(155, canvas.width - 190);
+        let randY = randomNumber(150, 350) * -1;
 
         setInterval(()=>{
             if(randomNumber(0, 10000) > 9950){  //car 1
-                let randX =randomNumber(155, canvas.width - 190);
-                let randY = (randomNumber(150, 350) * -1);
                 obstacles.push(new MovingObject("assets/cabrio.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 2
-                let randX =randomNumber(155, canvas.width - 190);
-                let randY = (randomNumber(150, 350) * -1);
                 obstacles.push(new MovingObject("assets/bugatti.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 3
-                let randX =randomNumber(155, canvas.width - 190);
-                let randY = (randomNumber(150, 350) * -1);
                 obstacles.push(new MovingObject("assets/ferrari_red.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
             if(randomNumber(0, 10000) > 9950){ //car 4
-                let randX =randomNumber(155, canvas.width - 190);
-                let randY = (randomNumber(150, 350) * -1);
                 obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
         },1000)
