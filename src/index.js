@@ -324,37 +324,79 @@ function UpdateGame(){
         } else {
             highwaySound.stop()
         }
-        //TESTING TIMER
         
         //Generating obstacles  //best value so far randomNumber(0, 10000) > 9750
 
         increaseLevel()
       
-        // let randX =randomNumber(155, canvas.width - 190);
-        // let randY = randomNumber(150, 350) * -1;
+//working version
+        // setTimeout(()=>{
+        //     if(randomNumber(0, 10000) > 9975){  //car 1
+        //         let randX, randY;
+        //         do {
+        //             randX =randomNumber(155, canvas.width - 190);
+        //             randY = randomNumber(150, 350) * -1;
+        //         } while (checkForOverlap(randX, randY, obstacles));
+        //         obstacles.push(new MovingObject("assets/cabrio.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
+        //     }
+        //     if(randomNumber(0, 10000) > 9975){ //car 2
+        //         let randX, randY;
+        //         do {
+        //             randX =randomNumber(155, canvas.width - 190)-40;
+        //             randY = (randomNumber(150, 350) * -1)-40;
+        //         } while (checkForOverlap(randX, randY, obstacles));
+        //         obstacles.push(new MovingObject("assets/bugatti.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
+        //     }
+        //     if(randomNumber(0, 10000) > 9975){ //car 4
+        //         let randX, randY;
+        //         do {
+        //             randX =randomNumber(155, canvas.width - 190)+40;
+        //             randY = (randomNumber(150, 350) * -1)+40;
+        //         } while (checkForOverlap(randX, randY, obstacles));
+        //         obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
+        //     }
+        // },1000);
 
         setTimeout(()=>{
-            if(randomNumber(0, 10000) > 9950){  //car 1
-                let randX =randomNumber(155, canvas.width - 190);
-        let randY = randomNumber(150, 350) * -1;
+            if(randomNumber(0, 10000) > 9970){  //car 1
+                let randX, randY;
+                do {
+                    randX =randomNumber(155, canvas.width - 190);
+                    randY = randomNumber(80, 120) * -1;
+                } while (checkForOverlap(randX, randY, obstacles));
                 obstacles.push(new MovingObject("assets/cabrio.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-            if(randomNumber(0, 10000) > 9950){ //car 2
-                let randX =randomNumber(155, canvas.width - 190);
-        let randY = randomNumber(150, 350) * -1;
+            if(randomNumber(0, 10000) > 9970){ //car 2
+                let randX, randY;
+                do {
+                    randX =randomNumber(185, canvas.width - 220);
+                    randY = (randomNumber(121, 160) * -1);
+                } while (checkForOverlap(randX, randY, obstacles));
                 obstacles.push(new MovingObject("assets/bugatti.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-            if(randomNumber(0, 10000) > 9950){ //car 3
-                let randX =randomNumber(155, canvas.width - 190);
-        let randY = randomNumber(150, 350) * -1;
-                obstacles.push(new MovingObject("assets/ferrari_red.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
-            }
-            if(randomNumber(0, 10000) > 9950){ //car 4
-                let randX =randomNumber(155, canvas.width - 190);
-        let randY = randomNumber(150, 350) * -1;
+            if(randomNumber(0, 10000) > 9970){ //car 4
+                let randX, randY;
+                do {
+                    randX =randomNumber(215, canvas.width - 250);
+                    randY = (randomNumber(161, 210) * -1);
+                } while (checkForOverlap(randX, randY, obstacles));
                 obstacles.push(new MovingObject("assets/acura1.png", randX,randY, false, speed, size, canvas, obstaclesSpeed));
             }
-        },1000)
+        },1000);
+
+
+
+
+
+        
+        function checkForOverlap(x, y, obstacles) {
+            for (let i = 0; i < obstacles.length; i++) {
+                if (obstacles[i].x === x && obstacles[i].y === y) {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
         racer.updateMovingObject();

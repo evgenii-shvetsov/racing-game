@@ -19,6 +19,7 @@ export default class MovingObject{
         this.image.addEventListener("load", function () { object.loaded = true; });
         this.image.src = image;
     }
+// original
 
     updateMovingObject(){
         if(!this.isRacer){ //isRacer false, means that it is not an obstacle
@@ -30,31 +31,21 @@ export default class MovingObject{
         }
     }
 
-    // updateMovingObject() {
-    //     if(!this.isRacer) {
-    //         this.y += this.speed + this.obstaclesSpeed;
-    //         if(this.y > this.canvas.height + 50) {
-    //             obstacles.splice(obstacles.indexOf(this), 1);
-    //         }
-    //     } else {
-    //         this.x += this.xInput * this.playerAcceleration;
-    //         this.y += this.yInput * this.playerAcceleration;
-    //     }
-    // }
+hit(movingObject){
+    let collisionStatus = false;
+    let width = this.image.width * this.size;
+    let height = this.image.height * this.size;
+    let otherWidth = movingObject.image.width * this.size;
+    let otherHeight = movingObject.image.height * this.size;
 
-    hit(movingObject){
-        let collisionStatus = false;
-
-        if(this.y < movingObject.y + movingObject.image.height * this.size && this.y + this.image.height * this.size > movingObject.y){ //If there is collision by y
-        
-            if(this.x + this.image.width * this.size > movingObject.x && this.x < movingObject.x + movingObject.image.width * this.size){ //If there is collision by x
-            
-                collisionStatus = true;
-            }
+    if(this.y + height/2 > movingObject.y - otherHeight/2 && this.y - height/2 < movingObject.y + otherHeight/2){ 
+        if(this.x + width/2 > movingObject.x - otherWidth/2 && this.x - width/2 < movingObject.x + otherWidth/2){ 
+            collisionStatus = true;
         }
-
-        return collisionStatus;
     }
+
+    return collisionStatus;
+}
 
 
 
