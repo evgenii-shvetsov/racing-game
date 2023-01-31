@@ -230,6 +230,7 @@ function pauseScreen(){
 function pausingGame(){
     if(timerInterval == null){
         LaunchGame();
+        blockKeydownBehaviour = false;
 
         //playing main sound
         if(!mute){
@@ -241,6 +242,7 @@ function pausingGame(){
         stopWatch();
     } else {
         StopGame();
+        blockKeydownBehaviour = true;
 
   //pausing main sound
     if(!mute){
@@ -447,6 +449,7 @@ function UpdateGame(){
                         tag.remove();
                         collisionScreen.style.display = 'none';
                         LaunchGame();
+                        blockKeydownBehaviour= false;
                         clock = true;
                         stopWatch();
                     },2500)
