@@ -143,6 +143,8 @@ let obstacles = []; //store all moving obstacles
 let obstaclesSpeed = 4; //could be triggered in rounds increasing
 let playerAcceleration = 5; // speed of moving on the canvas
 
+let blockKeydownBehaviour = false;
+
 // GAME COUNTERS
 let round = 1; // round number
 roundCounter.innerHTML = `Round ${round}`
@@ -191,6 +193,7 @@ let popupPause;
 function pauseScreen(){
     if(timerInterval != null){
         StopGame();
+        blockKeydownBehaviour = true;
 
         //pausing main sound
         if(!mute){
@@ -207,7 +210,7 @@ function pauseScreen(){
 
     } else {
         LaunchGame();
-
+        blockKeydownBehaviour = false;
         //playing main sound
         if(!mute){
             highwaySound.play()
@@ -559,38 +562,54 @@ function KeyDown(e){
     e.preventDefault();
         switch(e.keyCode){
             case 65: //Left
-                racer.move("x", -speed, playerAcceleration);
+                if(blockKeydownBehaviour === false){
+                    racer.move("x", -speed, playerAcceleration);
+                }
                 break;
     
             case 68: //Right
-                racer.move("x", speed, playerAcceleration);
+                if(blockKeydownBehaviour === false){
+                    racer.move("x", speed, playerAcceleration);
+                }
                 break;
     
             case 87: //Up
-                racer.move("y", -speed, playerAcceleration);
+                if(blockKeydownBehaviour === false){
+                    racer.move("y", -speed, playerAcceleration);
+                }
                 break;
     
             case 83: //Down
-                racer.move("y", speed, playerAcceleration);
+                if(blockKeydownBehaviour === false){
+                    racer.move("y", speed, playerAcceleration);
+                }
                 break;
 
             case 32: //Space
                 // Remove all obstacles from screen
                 // obstacles = [];
-                shakeCanvas()
+                if(blockKeydownBehaviour === false){
+                    shakeCanvas()
+                }
                 break;
 
             case 72: // Key "H"
                 //Horn sound
-                if(!mute) carHorn.play()
+                if(blockKeydownBehaviour === false){
+                    if(!mute) carHorn.play()
+                }
                 break;
             
             case 38: //Up
-                playerAcceleration++;
+                if(blockKeydownBehaviour === false){
+                    playerAcceleration++;
+                }
                 // console.log(`Acceleration: ${playerAcceleration}`)
                 break;
             case 40: //down
-                playerAcceleration--;
+                if(blockKeydownBehaviour === false){
+                    playerAcceleration--;
+                }
                 // console.log(`Acceleration: ${playerAcceleration}`)
                 break;
     
